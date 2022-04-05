@@ -34,38 +34,38 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\crystals.png">
+      <PackagePath>Assets\crystals.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\energy.png">
+      <PackagePath>Assets\energy.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\mana.png">
+      <PackagePath>Assets\mana.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\reloj.png">
+      <PackagePath>Assets\reloj.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\spellClosed.png">
+      <PackagePath>Assets\spellClosed.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\spellOpen.png">
+      <PackagePath>Assets\spellOpen.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\stone.png">
+      <PackagePath>Assets\stone.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\tropas.png">
+      <PackagePath>Assets\tropas.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\wood.png">
+      <PackagePath>Assets\wood.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\fondoGimp.jpg">
       <PackagePath>Assets\fondoGimp.jpg</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\LockScreenLogo.scale-200.png">
-      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\SplashScreen.scale-200.png">
-      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\Square150x150Logo.scale-200.png">
-      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\Square44x44Logo.scale-200.png">
-      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
-      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\StoreLogo.png">
-      <PackagePath>Assets\StoreLogo.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\Wide310x150Logo.scale-200.png">
-      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Trabajo1.xr.xml">
       <PackagePath>Trabajo1.xr.xml</PackagePath>
