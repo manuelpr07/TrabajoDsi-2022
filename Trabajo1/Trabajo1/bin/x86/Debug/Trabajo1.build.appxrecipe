@@ -37,8 +37,14 @@
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\crystals.png">
       <PackagePath>Assets\crystals.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\enemigo.png">
+      <PackagePath>Assets\enemigo.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\energy.png">
       <PackagePath>Assets\energy.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\Heroe.png">
+      <PackagePath>Assets\Heroe.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\mana.png">
       <PackagePath>Assets\mana.png</PackagePath>

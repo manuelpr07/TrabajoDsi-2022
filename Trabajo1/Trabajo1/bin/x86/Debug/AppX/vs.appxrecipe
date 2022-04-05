@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-05T14:57:34.875</Modified>
+      <Modified>2022-04-05T15:36:43.987</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Trabajo1.exe">
       <PackagePath>entrypoint\Trabajo1.exe</PackagePath>
-      <Modified>2022-04-05T14:57:34.412</Modified>
+      <Modified>2022-04-05T15:36:43.463</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -50,9 +50,17 @@
       <PackagePath>Assets\crystals.png</PackagePath>
       <Modified>2022-03-01T16:29:20.501</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\enemigo.png">
+      <PackagePath>Assets\enemigo.png</PackagePath>
+      <Modified>2022-04-05T15:34:11.986</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\energy.png">
       <PackagePath>Assets\energy.png</PackagePath>
       <Modified>2022-03-01T16:15:29.215</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\Heroe.png">
+      <PackagePath>Assets\Heroe.png</PackagePath>
+      <Modified>2022-04-05T15:35:53.823</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\mana.png">
       <PackagePath>Assets\mana.png</PackagePath>
@@ -92,7 +100,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Trabajo1.xr.xml">
       <PackagePath>Trabajo1.xr.xml</PackagePath>
-      <Modified>2022-04-05T14:57:34.269</Modified>
+      <Modified>2022-04-05T15:36:43.323</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
@@ -100,7 +108,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-04-05T14:57:34.287</Modified>
+      <Modified>2022-04-05T15:36:43.342</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -108,11 +116,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-04-05T14:45:02.063</Modified>
+      <Modified>2022-04-05T15:36:43.580</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Core\Trabajo1.exe">
       <PackagePath>Trabajo1.exe</PackagePath>
-      <Modified>2022-04-05T14:57:34.869</Modified>
+      <Modified>2022-04-05T15:36:43.982</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

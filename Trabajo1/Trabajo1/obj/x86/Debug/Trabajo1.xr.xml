@@ -29,6 +29,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Image">
       <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
       <RootProperty Name="BorderThickness" />
@@ -40,13 +42,14 @@
       <RootProperty Name="CornerRadius" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="Background" />
-      <RootProperty Name="Margin" />
       <RootProperty Name="Child" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
+      <RootProperty Name="Orientation" />
     </RootType>
     <RootType FullName="Trabajo1.MainPage" />
   </Roots.RootTypes>

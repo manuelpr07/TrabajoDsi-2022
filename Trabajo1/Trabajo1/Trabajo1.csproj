@@ -131,8 +131,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\crystals.png" />
+    <Content Include="Assets\enemigo.png" />
     <Content Include="Assets\energy.png" />
     <Content Include="Assets\fondoGimp.jpg" />
+    <Content Include="Assets\Heroe.png" />
     <Content Include="Assets\mana.png" />
     <Content Include="Assets\reloj.png" />
     <Content Include="Assets\spellClosed.png" />

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Trabajo1"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -24,7 +24,8 @@
                    Stretch="Fill"  
                    Grid.ColumnSpan="3" 
                    Grid.RowSpan="3"/>
-            <Border BorderThickness="1"
+            <Border x:Name ="HeroeBorder"
+                    BorderThickness="1"
                     Opacity=".7"   
                     Width="240"
                     Height="160"
@@ -35,11 +36,24 @@
                     CornerRadius="15" 
                     BorderBrush="Black" 
                     Background="#fef8a0">
+                <StackPanel x:Name="HeroLayout"
+                            Orientation="Horizontal" Margin="0">
+                    <Image  x:Name="heroe"         
+                            Source="Assets/Heroe.png"
+                            Stretch="Uniform" Width="124"  
+                            />
+                    <Image  x:Name="tiempo"         
+                            Source="Assets/reloj.png"
+                            Stretch="Uniform" Height="116" Width="79"  
+                            />
+                </StackPanel>
+
             </Border>
-            <Border BorderThickness="1"
+            <Border x:Name ="ManaEnergyBorder"
+                    BorderThickness="1"
                     Opacity=".7"   
                     Width="240"
-                   Height="160"
+                    Height="160"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Grid.Column="2"
@@ -47,16 +61,37 @@
                     CornerRadius="15" 
                     BorderBrush="Black" 
                     Background="#fef8a0">
+                <StackPanel x:Name ="ManaEnergyLayout" Orientation="Horizontal">
+                    <StackPanel x:Name="images">
+                        <Image  x:Name="mana"         
+                                Source="Assets/mana.png"
+                                HorizontalAlignment="Left"
+                                Stretch="Uniform" Width="57" Height="68" 
+                                Margin="5"
+                                />
+                        <Image  x:Name="energia"         
+                                Source="Assets/energy.png"
+                                HorizontalAlignment="Left"
+                                Stretch="Uniform" Height="78" Width="66"
+                                Margin="5"/>
+                    </StackPanel>
+                    <StackPanel x:Name="bars" Width="160">
+                        <ProgressBar x:Name="manaBar" Value="150" Maximum="200" Margin="30" Width="100" Height="20" BorderThickness="1" CornerRadius="5" BorderBrush="Black"/>
+                        <ProgressBar x:Name="energyBar" Value="100" Maximum="200" Margin="30" Width="100" Height="20" BorderThickness="1" CornerRadius="5" Foreground="Yellow" BorderBrush="Black"/>
+                    </StackPanel>
+                    
+                </StackPanel>
             </Border>
-            
+
             <StackPanel Grid.Column="2"
                         VerticalAlignment="Bottom"
                         Margin="0,0,0,100">
 
-                <Border BorderThickness="1"
+                <Border x:Name ="RecursosBorder"
+                        BorderThickness="1"
                         Opacity=".7"   
                         Width="120"
-                       Height="100"
+                        Height="100"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         Grid.Column="2"
@@ -69,7 +104,8 @@
                             Source="Assets/crystals.png" 
                             Stretch="Uniform" />
                 </Border>
-                <Border BorderThickness="1"
+                <Border x:Name ="TropasBorder"
+                        BorderThickness="1"
                         Opacity=".7"   
                         Width="120"
                         Height="100"
@@ -81,7 +117,7 @@
                         CornerRadius="15,0,0,15" 
                         BorderBrush="Black" 
                         Background="#fef8a0">
-                
+
                     <Image  x:Name="tropas"         
                         Source="Assets/tropas.png"
                         Stretch="Uniform"  
@@ -90,5 +126,5 @@
             </StackPanel>
         </Grid>
     </Grid>
-    
+
 </Page>
