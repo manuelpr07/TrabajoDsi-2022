@@ -72,8 +72,7 @@
                     Grid.Row="1"
                     Grid.Column="2"
                     Margin="10"/>
-            <Border x:Name ="HeroeBorder"
-                    BorderThickness="1"
+            <Border BorderThickness="1"
                     Opacity=".85"   
                     Width="240"
                     Height="160"
@@ -95,11 +94,11 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="Transparent">
-                        
+
                         <Image  Source="Assets/reloj.png"
                         Stretch="Uniform" Width="90" Height="150"/>
                     </Button>
-                    
+
                     <Button BorderThickness="0"  
                         Width="120"
                         Height="130"
@@ -115,7 +114,277 @@
                 </StackPanel>
 
             </Border>
-            
+            <Button Click="Settings"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Grid.Column="2"
+                    Grid.Row="0" 
+                    Width="100"
+                    Height="100"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Margin="0,10,0,0">
+                <SymbolIcon Symbol="Setting" />
+            </Button>
+            <Border x:Name ="ManaEnergyBorder"
+                    BorderThickness="0"
+                    Opacity=".85"   
+                    Width="368"
+                    Height="266"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="2"
+                    Margin="0,0,30,20"
+                    CornerRadius="15" 
+                    Background="Transparent">
+                <StackPanel x:Name ="ManaEnergyLayout" Margin="0,-24,-13,0" VerticalAlignment="Bottom">
+                    <StackPanel x:Name="images"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+                        <Button 
+                                Background="transparent"
+                                Click="EnterSpells"
+                                Height="119" 
+                                Margin="5" 
+                                Width="127">
+                            <Grid>
+
+                                <Image  x:Name="OpenBook"         
+                                    Source="Assets/spellOpen.png"
+                                    Stretch="Uniform"
+                                    Visibility="Visible"/>
+                                <Image  x:Name="ClosedBook"         
+                                    Source="Assets/spellClosed.png"
+                                    Stretch="Uniform"
+                                    Visibility="Collapsed"/>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel x:Name="bars"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+                        <ProgressBar x:Name="manaBar" Value="150" Maximum="200" Margin="20,20,0,35" Width="143" Height="29" VerticalAlignment="Bottom" BorderThickness="1" CornerRadius="5" BorderBrush="Black"/>
+                        <Image  Source="Assets/mana.png"
+                                Stretch="Uniform" Height="99" Width="114"
+                                Margin="15"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="8"   
+                    Width="705"
+                    Height="112"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,0,30"
+                    CornerRadius="15" 
+                    BorderBrush="#c3bb38" 
+                    Background="#fef8a0">
+                <Grid>
+                    <TextBlock Text="ORDEN DE TROPAS"
+                               HorizontalAlignment="Center"
+                               FontSize="22"/>
+                    <Border Background="LightGoldenrodYellow"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            BorderBrush="Black"
+                            BorderThickness="1"
+                            Height="50"
+                            Width="600" Margin="0,0,0,10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="2*"/>
+                            </Grid.RowDefinitions>
+                            <Image     Source="Assets/tropas.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="0"/>
+                            <Image     Source="Assets/tropas.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="1"/>
+                            <Image     Source="Assets/tropas.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="2"/>
+                            <Image     Source="Assets/angeles.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="3"/>
+                            <Image     Source="Assets/dragon.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="4"/>
+                            <Image     Source="Assets/arqueros.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="5"/>
+                            <Ellipse
+                                        Width="15"
+                                        Height="15"
+                                        Fill="#0c59cf"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="0"/>
+                            <Ellipse
+                                        Width="15"
+                                        Height="15"
+                                        Fill="#0c59cf"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="1"/>
+                            <Ellipse
+                                        Width="15"
+                                        Height="15"
+                                        Fill="#0c59cf"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="2"/>
+                            <Ellipse
+                                        Width="15"
+                                        Height="15"
+                                        Fill="#e61610"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="3"/>
+                            <Ellipse
+                                        Width="15"
+                                        Height="15"
+                                        Fill="#0c59cf"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="4"/>
+                            <Ellipse
+                                        Width="15"
+                                        Height="15"
+                                        Fill="#0c59cf"
+                                        HorizontalAlignment="Center"
+                                        Grid.Column="5"/>
+                            <Rectangle  Width="7"
+                                        Height="49"
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="2"
+                                        Grid.Row="0"
+                                        Grid.RowSpan="2"
+                                        Fill="#72bb53"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                            </Rectangle>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid x:Name="SpellGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="2"
+                    Opacity=".90"   
+                    Width="908"
+                    Height="530"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CornerRadius="15" 
+                    BorderBrush="#c3bb38" 
+                    Background="#fef8a0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="LIBRO DE HECHIZOS"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="26"/>
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                HorizontalAlignment="Center">
+                        <Image Source="Assets/frost.png"
+                               Stretch="Uniform" Width="163" Height="183"
+                               />
+                        <Border BorderThickness="5"   
+                                Width="567"
+                                Height="100"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                BorderBrush="#00c8f8" 
+                                Background="#fef8a0">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <StackPanel>
+                                    <TextBlock Text="CONGELACIÓN"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="18"
+                                               Margin="0,20,0,10"/>
+                                    <TextBlock Text="20 Maná"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="Causa que un enemigo se quede congelado durante un turno, perdiéndolo y recibiendo un poco de daño."
+                                           VerticalAlignment="Center"
+                                           FontSize="12" Width="418"
+                                           TextWrapping="Wrap"
+                                           Margin="5"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top">
+                        <Image Source="Assets/fireball.png"
+                               Stretch="Uniform" Width="115" Height="138"
+                               Margin="20"
+                               />
+                        <Border BorderThickness="1"   
+                                Width="567"
+                                Height="100"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                VerticalAlignment="Center"
+                                BorderBrush="#00c8f8" 
+                                Background="#fef8a0">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <StackPanel>
+                                    <TextBlock Text="bola de fuego"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="18"
+                                               Margin="0,20,0,10"/>
+                                    <TextBlock Text="40 Maná"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               FontSize="12"/>
+                                </StackPanel>
+                                <TextBlock Text="Cae una bola de fuego en un rango de casillas de 3x3 causando mucho daño y causando quemadura a las tropas afectadas"
+                                           VerticalAlignment="Center"
+                                           FontSize="12" Width="418"
+                                           TextWrapping="Wrap"
+                                           Margin="5"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Page>

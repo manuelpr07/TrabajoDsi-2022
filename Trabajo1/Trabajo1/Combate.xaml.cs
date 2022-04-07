@@ -30,5 +30,25 @@ namespace Trabajo1
         {
             Frame.Navigate(typeof(Map));
         }
+        private void Settings(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Map));
+        }
+        private void EnterSpells(object sender, RoutedEventArgs e)
+        {
+            if(OpenBook.Visibility == Visibility.Visible)
+            {
+                ClosedBook.Visibility = Visibility.Visible;
+                OpenBook.Visibility = Visibility.Collapsed;
+                SpellGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ClosedBook.Visibility = Visibility.Collapsed;
+                OpenBook.Visibility = Visibility.Visible;
+                SpellGrid.Visibility = Visibility.Collapsed;
+
+            }
+        }
     }
 }
