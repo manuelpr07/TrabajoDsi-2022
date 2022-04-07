@@ -48,3 +48,8 @@ C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo
 C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\obj\x86\Debug\Combate.g.cs
 C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\obj\x86\Debug\Combate.xaml
 C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\obj\x86\Debug\Combate.xbf
+C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Map.xbf
+C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\obj\x86\Debug\Map.g.i.cs
+C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\obj\x86\Debug\Map.g.cs
+C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\obj\x86\Debug\Map.xaml
+C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\obj\x86\Debug\Map.xbf

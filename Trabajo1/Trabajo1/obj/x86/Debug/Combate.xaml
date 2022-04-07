@@ -9,22 +9,113 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image x:ConnectionId='2' x:Name="MiFondo"         
-                Source="Assets/tableroCombate.png" 
-                Stretch="Fill"  
+
+        <Rectangle  Stretch="Fill"  
                 Grid.ColumnSpan="3" 
-                Grid.RowSpan="3"/>
-        <Grid x:ConnectionId='3' x:Name="mapGrid"
+                Grid.RowSpan="3"
+                Fill="#fef8a0"/>
+        <Grid x:ConnectionId='2' x:Name="mainGrid"
               Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="6*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <Image x:ConnectionId='3' x:Name="MiFondo"         
+                Source="Assets/tableroCombate.png" 
+                Stretch="Fill"  
+                Grid.Column="1" 
+                Grid.Row="1"/>
+            <Ellipse
+                Width="150"
+                Height="150"
+                Fill="#fef8a0"
+                Stroke="#c3bb38"
+                StrokeThickness="10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                Margin="50"/>
+            <StackPanel Width="150"
+                Height="150"
+                Canvas.Left="135"
+                Canvas.Top="100"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Grid.Column="1"
+                Grid.RowSpan="2"
+                Margin="50">
+                <TextBlock  Text="Turno:"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="20,40,20,0"
+                    FontSize="26"/>
+                <TextBlock  Text="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="26"/>
+            </StackPanel>
+            <Image x:ConnectionId='4'  x:Name="heroe"         
+                    Source="Assets/Heroe.png"
+                    Stretch="Uniform" 
+                    Grid.Row="1"
+                    Margin="10"/>
+            <Image x:ConnectionId='5'  x:Name="enemigo"         
+                    Source="Assets/enemigo.png"
+                    Stretch="Uniform" 
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="10"/>
+            <Border x:ConnectionId='6' x:Name ="HeroeBorder"
+                    BorderThickness="1"
+                    Opacity=".85"   
+                    Width="240"
+                    Height="160"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Margin="50,0,0,50"
+                    CornerRadius="15" 
+                    BorderBrush="Black" 
+                    Background="#fef8a0">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button BorderThickness="0"  
+                        Width="120"
+                        Height="130"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="Transparent">
+                        
+                        <Image  Source="Assets/reloj.png"
+                        Stretch="Uniform" Width="90" Height="150"/>
+                    </Button>
+                    
+                    <Button x:ConnectionId='7' BorderThickness="0"  
+                        Width="120"
+                        Height="130"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="Transparent"
+                                        >
+
+                        <Image  Source="Assets/retirada.png"
+                        Stretch="Uniform" Height="129" Width="112"/>
+                    </Button>
+
+                </StackPanel>
+
+            </Border>
+            
         </Grid>
     </Grid>
 </Page>

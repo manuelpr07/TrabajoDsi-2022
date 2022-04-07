@@ -26,5 +26,9 @@ namespace Trabajo1
         {
             this.InitializeComponent();
         }
+        private void EnterMap(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Map));
+        }
     }
 }
