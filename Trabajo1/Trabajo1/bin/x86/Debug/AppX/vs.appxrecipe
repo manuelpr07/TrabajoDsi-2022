@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-04-05T15:36:43.987</Modified>
+      <Modified>2022-04-07T14:01:56.289</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Trabajo1.exe">
       <PackagePath>entrypoint\Trabajo1.exe</PackagePath>
-      <Modified>2022-04-05T15:36:43.463</Modified>
+      <Modified>2022-04-07T14:01:55.412</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,9 +46,33 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2020-12-02T02:52:00.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\aleman.png">
+      <PackagePath>Assets\aleman.png</PackagePath>
+      <Modified>2022-03-01T12:44:48.914</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\angeles.png">
+      <PackagePath>Assets\angeles.png</PackagePath>
+      <Modified>2022-03-01T17:38:43.259</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\arqueros.png">
+      <PackagePath>Assets\arqueros.png</PackagePath>
+      <Modified>2022-03-01T12:22:46.383</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\arrow.png">
+      <PackagePath>Assets\arrow.png</PackagePath>
+      <Modified>2022-03-01T20:55:22.792</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\caballeros.png">
+      <PackagePath>Assets\caballeros.png</PackagePath>
+      <Modified>2022-03-01T17:38:13.302</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\crystals.png">
       <PackagePath>Assets\crystals.png</PackagePath>
       <Modified>2022-03-01T16:29:20.501</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\dragon.png">
+      <PackagePath>Assets\dragon.png</PackagePath>
+      <Modified>2022-03-01T17:38:33.169</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\enemigo.png">
       <PackagePath>Assets\enemigo.png</PackagePath>
@@ -58,17 +82,49 @@
       <PackagePath>Assets\energy.png</PackagePath>
       <Modified>2022-03-01T16:15:29.215</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\espanol.png">
+      <PackagePath>Assets\espanol.png</PackagePath>
+      <Modified>2022-03-01T12:44:51.810</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\fireball.png">
+      <PackagePath>Assets\fireball.png</PackagePath>
+      <Modified>2022-03-01T22:46:53.423</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\frances.png">
+      <PackagePath>Assets\frances.png</PackagePath>
+      <Modified>2022-03-01T12:44:49.570</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\frost.png">
+      <PackagePath>Assets\frost.png</PackagePath>
+      <Modified>2022-03-01T22:46:20.849</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\Heroe.png">
       <PackagePath>Assets\Heroe.png</PackagePath>
       <Modified>2022-04-05T15:35:53.823</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\ingles.png">
+      <PackagePath>Assets\ingles.png</PackagePath>
+      <Modified>2022-03-01T12:44:48.914</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\mana.png">
       <PackagePath>Assets\mana.png</PackagePath>
       <Modified>2022-03-01T16:15:29.215</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\oro.png">
+      <PackagePath>Assets\oro.png</PackagePath>
+      <Modified>2022-03-01T20:43:53.943</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\piqueros.png">
+      <PackagePath>Assets\piqueros.png</PackagePath>
+      <Modified>2022-03-01T12:24:15.750</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\reloj.png">
       <PackagePath>Assets\reloj.png</PackagePath>
       <Modified>2022-03-01T22:39:15.862</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\retirada.png">
+      <PackagePath>Assets\retirada.png</PackagePath>
+      <Modified>2022-03-01T22:39:32.273</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\spellClosed.png">
       <PackagePath>Assets\spellClosed.png</PackagePath>
@@ -81,6 +137,14 @@
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\stone.png">
       <PackagePath>Assets\stone.png</PackagePath>
       <Modified>2022-03-01T20:43:53.943</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\tableroCombate.png">
+      <PackagePath>Assets\tableroCombate.png</PackagePath>
+      <Modified>2022-04-07T13:28:28.758</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\templarios.png">
+      <PackagePath>Assets\templarios.png</PackagePath>
+      <Modified>2022-03-01T17:38:13.302</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\Assets\tropas.png">
       <PackagePath>Assets\tropas.png</PackagePath>
@@ -100,15 +164,19 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Trabajo1.xr.xml">
       <PackagePath>Trabajo1.xr.xml</PackagePath>
-      <Modified>2022-04-05T15:36:43.323</Modified>
+      <Modified>2022-04-07T14:01:55.119</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-04-05T13:09:23.066</Modified>
+      <Modified>2022-04-07T13:52:39.339</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Combate.xbf">
+      <PackagePath>Combate.xbf</PackagePath>
+      <Modified>2022-04-07T13:52:39.339</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-04-05T15:36:43.342</Modified>
+      <Modified>2022-04-07T14:01:55.187</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -116,11 +184,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-04-05T15:36:43.580</Modified>
+      <Modified>2022-04-07T13:28:59.600</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\manue\OneDrive\Escritorio\Desarrollo de Videojuegos\SEGUNDO\DSI\Trabajo\TrabajoDsi-2022\Trabajo1\Trabajo1\bin\x86\Debug\Core\Trabajo1.exe">
       <PackagePath>Trabajo1.exe</PackagePath>
-      <Modified>2022-04-05T15:36:43.982</Modified>
+      <Modified>2022-04-07T14:01:56.279</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Combate.xaml.cs">
+      <DependentUpon>Combate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -130,16 +133,32 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\aleman.png" />
+    <Content Include="Assets\angeles.png" />
+    <Content Include="Assets\arqueros.png" />
+    <Content Include="Assets\arrow.png" />
+    <Content Include="Assets\caballeros.png" />
     <Content Include="Assets\crystals.png" />
+    <Content Include="Assets\dragon.png" />
     <Content Include="Assets\enemigo.png" />
     <Content Include="Assets\energy.png" />
+    <Content Include="Assets\espanol.png" />
+    <Content Include="Assets\fireball.png" />
     <Content Include="Assets\fondoGimp.jpg" />
+    <Content Include="Assets\frances.png" />
+    <Content Include="Assets\frost.png" />
     <Content Include="Assets\Heroe.png" />
+    <Content Include="Assets\ingles.png" />
     <Content Include="Assets\mana.png" />
+    <Content Include="Assets\oro.png" />
+    <Content Include="Assets\piqueros.png" />
     <Content Include="Assets\reloj.png" />
+    <Content Include="Assets\retirada.png" />
     <Content Include="Assets\spellClosed.png" />
     <Content Include="Assets\spellOpen.png" />
     <Content Include="Assets\stone.png" />
+    <Content Include="Assets\tableroCombate.png" />
+    <Content Include="Assets\templarios.png" />
     <Content Include="Assets\tropas.png" />
     <Content Include="Assets\wood.png" />
     <Content Include="Properties\Default.rd.xml" />
@@ -149,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Combate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

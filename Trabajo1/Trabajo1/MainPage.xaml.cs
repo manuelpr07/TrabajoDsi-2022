@@ -25,6 +25,35 @@ namespace Trabajo1
         public MainPage()
         {
             this.InitializeComponent();
+            mapGrid.Visibility = Visibility.Visible;
+        }
+
+        private void EnterResources(object sender, RoutedEventArgs e)
+        {
+            mapGrid.Visibility = Visibility.Collapsed;
+            resourcesGrid.Visibility = Visibility.Visible;
+        }
+        private void EnterTroops(object sender, RoutedEventArgs e)
+        {
+            mapGrid.Visibility = Visibility.Collapsed;
+            troopsGrid.Visibility = Visibility.Visible;
+        }
+        private void EnterCombat(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Combate));
+        }
+        private void Settings(object sender, RoutedEventArgs e)
+        {
+            mapGrid.Visibility = Visibility.Collapsed;
+            settingGrid.Visibility = Visibility.Visible;
+        }
+        private void ReturnMap(object sender, RoutedEventArgs e)
+        {
+            mapGrid.Visibility = Visibility.Visible;
+            troopsGrid.Visibility = Visibility.Collapsed;
+            resourcesGrid.Visibility = Visibility.Collapsed;
+            settingGrid.Visibility = Visibility.Collapsed;
+
         }
     }
 }
