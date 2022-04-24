@@ -41,7 +41,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
-                BorderBrush="#fef8a0"
+                BorderThickness="0"
                 Grid.Row="0"
                 Grid.Column="1"
                 Height="80"
@@ -51,7 +51,7 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
-                BorderBrush="#fef8a0"
+                BorderThickness="0"
                 Grid.Row="0"
                 Grid.Column="1"
                 Height="110"
@@ -61,7 +61,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
-                BorderBrush="#fef8a0"
+                BorderThickness="0"
                 Grid.Row="1"
                 Grid.Column="1"
                 Height="110"
@@ -71,7 +71,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderBrush="#fef8a0"
+                BorderThickness="0"
                 Grid.Row="1"
                 Grid.Column="1"
                 Height="110"
@@ -209,7 +209,7 @@
                         BorderThickness="1"
                         Opacity=".85"   
                         Width="800"
-                        Height="650"
+                        Height="600"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Grid.Column="1"
@@ -280,7 +280,8 @@
                         <Button Content="GUARDAR Y SALIR"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom"
-                                Margin="20"/>
+                                Margin="20"
+                                Click="ReturnMenu"/>
                     </StackPanel>
                 </Grid>
             </Border>

@@ -32,7 +32,14 @@ namespace Trabajo1
         }
         private void Settings(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Map));
+            if (settingGrid.Visibility == Visibility.Visible)
+            {
+                settingGrid.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                settingGrid.Visibility = Visibility.Visible;
+            }
         }
         private void EnterSpells(object sender, RoutedEventArgs e)
         {
@@ -40,15 +47,19 @@ namespace Trabajo1
             {
                 ClosedBook.Visibility = Visibility.Visible;
                 OpenBook.Visibility = Visibility.Collapsed;
-                SpellGrid.Visibility = Visibility.Visible;
+                SpellGrid.Visibility = Visibility.Collapsed;
             }
             else
             {
-                ClosedBook.Visibility = Visibility.Collapsed;
                 OpenBook.Visibility = Visibility.Visible;
-                SpellGrid.Visibility = Visibility.Collapsed;
+                ClosedBook.Visibility = Visibility.Collapsed;
+                SpellGrid.Visibility = Visibility.Visible;
 
             }
+        }
+        private void ReturnMenu(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

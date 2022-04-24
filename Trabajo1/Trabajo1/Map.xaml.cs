@@ -54,5 +54,9 @@ namespace Trabajo1
             settingGrid.Visibility = Visibility.Collapsed;
 
         }
+        private void ReturnMenu(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }

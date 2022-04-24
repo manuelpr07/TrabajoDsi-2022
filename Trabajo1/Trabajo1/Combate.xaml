@@ -153,11 +153,11 @@
                                 <Image  x:Name="OpenBook"         
                                     Source="Assets/spellOpen.png"
                                     Stretch="Uniform"
-                                    Visibility="Visible"/>
+                                    Visibility="Collapsed"/>
                                 <Image  x:Name="ClosedBook"         
                                     Source="Assets/spellClosed.png"
                                     Stretch="Uniform"
-                                    Visibility="Collapsed"/>
+                                    Visibility="Visible"/>
                             </Grid>
                         </Button>
                     </StackPanel>
@@ -382,6 +382,95 @@
                                            Margin="5"/>
                             </StackPanel>
                         </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid x:Name="settingGrid"
+              Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name ="SettingsBorder"
+                        BorderThickness="1"
+                        Opacity=".95"   
+                        Width="800"
+                        Height="600"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="CONFIGURACION"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="10"/>
+                    <Button Click="Settings"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <SymbolIcon Symbol="Back" />
+                    </Button>
+
+                    <StackPanel Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="MUSICA"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="30"/>
+                            <Slider x:Name="music"  
+                                    Minimum="0" 
+                                    Maximum="10"
+                                    IsDirectionReversed="true"
+                                    VerticalAlignment="Center"
+                                    Width="400"
+                                    Margin="0,30,30,30"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="SFX"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="40,30,30,40"/>
+                            <Slider x:Name="SFX"  
+                                    Minimum="0" 
+                                    Maximum="10"
+                                    IsDirectionReversed="true"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right"
+                                    Width="400"
+                                    Margin="70,30,30,30"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"
+                                VerticalAlignment="Center">
+                        <Button Content="GUARDAR Y SALIR"
+                                FontSize="30"
+                                HorizontalAlignment="Center"
+                                Margin="20"
+                                Click="ReturnMenu" Height="61" Width="311"/>
                     </StackPanel>
                 </Grid>
             </Border>
