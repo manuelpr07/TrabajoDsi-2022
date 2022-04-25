@@ -387,7 +387,7 @@
             </Border>
         </Grid>
         <Grid x:Name="settingGrid"
-              Visibility="Visible">
+              Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
