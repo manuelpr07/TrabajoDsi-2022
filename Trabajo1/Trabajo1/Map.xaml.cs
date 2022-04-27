@@ -58,5 +58,45 @@ namespace Trabajo1
         {
             Frame.Navigate(typeof(MainPage));
         }
+        private void StoreButton1_onClick(object sender, RoutedEventArgs e)
+        {
+            if(int.Parse(oro.Text) >= 100)
+            {
+                int newOro = int.Parse(oro.Text);
+                oro.Text = Convert.ToString(newOro -= 100);
+
+                int newMadera = int.Parse(madera.Text);
+                madera.Text = Convert.ToString(newMadera += 1);
+                if(newOro < 100)
+                {
+                    StoreButton1.IsEnabled = false;
+                }
+            }
+        }
+        private void StoreButton2_onClick(object sender, RoutedEventArgs e)
+        {
+            if (int.Parse(mineral.Text) >= 1)
+            {
+                int newMineral = int.Parse(mineral.Text);
+                mineral.Text = Convert.ToString(newMineral -= 1);
+
+                int newPiedra = int.Parse(piedra.Text);
+                piedra.Text = Convert.ToString(newPiedra += 4);
+                if (newMineral < 1)
+                {
+                    StoreButton2.IsEnabled = false;
+                }
+            }
+        }
+        //private void CommandBar_KeyDown(object sender, KeyRoutedEventArgs e)
+        //{
+        //    if (e.Key == Windows.System.VirtualKey.Tab)
+        //    {
+        //        e.Handled = true;
+        //        DependencyObject candidate = null;
+        //        candidate = FocusManager.FindNextFocusableElement(FocusNavigationDirection.Next);
+        //        (candidate as Control).Focus(FocusState.Keyboard);
+        //    }
+        //}
     }
 }

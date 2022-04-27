@@ -38,6 +38,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button Click="EnterCombat"
+                TabIndex="3"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
@@ -48,6 +49,7 @@
                 Width="80"
                 Margin="32,20,20,85" />
             <Button Click="EnterCombat"
+                TabIndex="4"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
@@ -58,6 +60,7 @@
                 Width="110"
                 Margin="20,20,150,15" />
             <Button Click="EnterCombat"
+                TabIndex="5"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
@@ -68,6 +71,7 @@
                 Width="110"
                 Margin="20,20,230,40" />
             <Button Click="EnterCombat"
+                TabIndex="6"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Background="Transparent"
@@ -141,6 +145,7 @@
                         Margin="0,0,0,100">
 
                 <Button x:Name ="RecursosBorder"
+                        TabIndex="1"
                         BorderThickness="1"
                         Opacity=".85"   
                         Width="120"
@@ -158,7 +163,8 @@
                             Source="Assets/crystals.png" 
                             Stretch="Uniform" />
                 </Button>
-                <Button x:Name ="TropasBorder"
+                <Button TabIndex="2"
+                        x:Name ="TropasBorder"
                         BorderThickness="1"
                         Opacity=".85"   
                         Width="120"
@@ -181,6 +187,7 @@
             </StackPanel>
 
             <Button Click="Settings"
+                            TabIndex="0"
                             Background="Transparent"
                             BorderThickness="0"
                             Grid.Column="2"
@@ -646,22 +653,26 @@
                                        Grid.Row="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="2753"
+                            <TextBlock x:Name="oro"
+                                       Text="2753"
                                        Grid.Column="2"
                                        Grid.Row="1"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="28"
+                            <TextBlock x:Name="madera"
+                                       Text="28"
                                        Grid.Column="2"
                                        Grid.Row="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="34"
+                            <TextBlock x:Name="piedra"
+                                       Text="34"
                                        Grid.Column="2"
                                        Grid.Row="3"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="13"
+                            <TextBlock x:Name="mineral"
+                                       Text="13"
                                        Grid.Column="2"
                                        Grid.Row="4"
                                        HorizontalAlignment="Center"
@@ -709,7 +720,10 @@
                                Grid.Row="2"/>
                     <StackPanel Grid.Row="2" HorizontalAlignment="Center">
                         <StackPanel Orientation="Horizontal">
-                            <Border BorderThickness="1"
+                            <Button x:Name="StoreButton1"
+                            Click="StoreButton1_onClick"       
+                            IsEnabled="True"
+                            BorderThickness="1"
                             Width="80"
                             Height="50"
                             HorizontalAlignment="Center"
@@ -719,15 +733,17 @@
                             Margin="0,43,0,0"
                             BorderBrush="Black" 
                             Background="#fef8a0">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="100"
-                                               Margin="10"
-                                               VerticalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left">
+                                    <TextBlock     FontSize="15"
+                                                   Text="100"
+                                                   Margin="5"
+                                                   VerticalAlignment="Center"/>
                                     <Image     Source="Assets/oro.png"          
-                                       Height="30"
-                                       VerticalAlignment="Center"/>
+                                           Height="30"
+                                           VerticalAlignment="Center"/>
                                 </StackPanel>
-                            </Border>
+                            </Button>
                             <Image     Source="Assets/arrow.png"          
                                        Height="30"
                                        VerticalAlignment="Bottom"
@@ -747,13 +763,16 @@
                                                Margin="10"
                                                VerticalAlignment="Center"/>
                                     <Image     Source="Assets/wood.png"          
-                                       Height="30"
-                                       VerticalAlignment="Center"/>
+                                       Height="34"
+                                       VerticalAlignment="Center" Width="37"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Border BorderThickness="1"
+                            <Button x:Name="StoreButton2"
+                            Click="StoreButton2_onClick"
+                            IsEnabled="True"
+                            BorderThickness="1"
                             Width="80"
                             Height="50"
                             HorizontalAlignment="Center"
@@ -764,14 +783,15 @@
                             BorderBrush="Black" 
                             Background="#fef8a0">
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="1"
+                                    <TextBlock FontSize="15"
+                                               Text="1"
                                                Margin="10"
                                                VerticalAlignment="Center"/>
                                     <Image     Source="Assets/crystals.png"          
                                        Height="30"
                                        VerticalAlignment="Center"/>
                                 </StackPanel>
-                            </Border>
+                            </Button>
                             <Image     Source="Assets/arrow.png"          
                                        Height="30"
                                        VerticalAlignment="Bottom"

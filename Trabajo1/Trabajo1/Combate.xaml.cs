@@ -61,5 +61,18 @@ namespace Trabajo1
         {
             Frame.Navigate(typeof(MainPage));
         }
+        private void NewTurn(object sender, RoutedEventArgs e)
+        {
+            int newTurn = int.Parse(Turn.Text);
+            if (newTurn < 10)
+            {
+                Frame.Navigate(typeof(Map));
+            }
+            else Turn.Text = Convert.ToString(newTurn += 1);
+        }
     }
 }
+
+
+//e61610 rojo
+//00c8f8 azul

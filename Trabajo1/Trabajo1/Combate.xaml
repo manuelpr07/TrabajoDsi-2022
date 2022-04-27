@@ -56,7 +56,8 @@
                     VerticalAlignment="Center"
                     Margin="20,40,20,0"
                     FontSize="26"/>
-                <TextBlock  Text="1"
+                <TextBlock x:Name="Turn" 
+                    Text="1"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="26"/>
@@ -88,7 +89,9 @@
                     Background="#fef8a0">
                 <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    <Button BorderThickness="0"  
+                    <Button Click="NewTurn"
+                        TabIndex="1"
+                        BorderThickness="0"  
                         Width="120"
                         Height="130"
                         HorizontalAlignment="Center"
@@ -100,6 +103,7 @@
                     </Button>
 
                     <Button BorderThickness="0"  
+                        TabIndex="2"
                         Width="120"
                         Height="130"
                         HorizontalAlignment="Center"
@@ -115,6 +119,7 @@
 
             </Border>
             <Button Click="Settings"
+                    TabIndex="0"
                     Background="Transparent"
                     BorderThickness="0"
                     Grid.Column="2"
@@ -142,7 +147,7 @@
                     Background="Transparent">
                 <StackPanel x:Name ="ManaEnergyLayout" Margin="0,-24,-13,0" VerticalAlignment="Bottom">
                     <StackPanel x:Name="images"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-                        <Button 
+                        <Button TabIndex="3"
                                 Background="transparent"
                                 Click="EnterSpells"
                                 Height="119" 
@@ -281,7 +286,7 @@
             </Border>
         </Grid>
         <Grid x:Name="SpellGrid"
-              Visibility="Collapsed">
+              Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="4*"/>
@@ -319,21 +324,20 @@
                         <Image Source="Assets/frost.png"
                                Stretch="Uniform" Width="163" Height="183"
                                />
-                        <Border BorderThickness="5"   
+                        <Button x:Name="Frost"
+                                BorderThickness="1"   
                                 Width="567"
                                 Height="100"
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
-                                BorderBrush="#00c8f8" 
+                                BorderBrush="#c3bb38" 
                                 Background="#fef8a0">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <StackPanel>
                                     <TextBlock Text="CONGELACIÓN"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
                                                FontSize="18"
-                                               Margin="0,20,0,10"/>
+                                               />
                                     <TextBlock Text="20 Maná"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -341,11 +345,11 @@
                                 </StackPanel>
                                 <TextBlock Text="Causa que un enemigo se quede congelado durante un turno, perdiéndolo y recibiendo un poco de daño."
                                            VerticalAlignment="Center"
-                                           FontSize="12" Width="418"
+                                           FontSize="12" Width="393"
                                            TextWrapping="Wrap"
                                            Margin="5"/>
                             </StackPanel>
-                        </Border>
+                        </Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Grid.Row="2"
@@ -355,21 +359,21 @@
                                Stretch="Uniform" Width="115" Height="138"
                                Margin="20"
                                />
-                        <Border BorderThickness="1"   
+                        <Button 
+                                x:Name="Fireball"
+                                BorderThickness="1"   
                                 Width="567"
                                 Height="100"
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
-                                BorderBrush="#00c8f8" 
+                                BorderBrush="#c3bb38" 
                                 Background="#fef8a0">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <StackPanel>
                                     <TextBlock Text="bola de fuego"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
                                                FontSize="18"
-                                               Margin="0,20,0,10"/>
+                                               />
                                     <TextBlock Text="40 Maná"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
@@ -377,11 +381,11 @@
                                 </StackPanel>
                                 <TextBlock Text="Cae una bola de fuego en un rango de casillas de 3x3 causando mucho daño y causando quemadura a las tropas afectadas"
                                            VerticalAlignment="Center"
-                                           FontSize="12" Width="418"
+                                           FontSize="12" Width="412"
                                            TextWrapping="Wrap"
                                            Margin="5"/>
                             </StackPanel>
-                        </Border>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Border>
