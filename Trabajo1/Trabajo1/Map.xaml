@@ -224,14 +224,16 @@
                         <RowDefinition Height="2*"/>
                         <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="CALENDARIO"
+                    <TextBlock x:Name="calendario"
+                               Text="CALENDARIO"
                                HorizontalAlignment="Center"
                                Grid.Column="0"
                                Grid.ColumnSpan="3"/>
                     <StackPanel Orientation="Horizontal"
                                 Grid.Row="1"
                                 HorizontalAlignment="Center">
-                        <TextBlock Text="Dia: "/>
+                        <TextBlock x:Name="diaT"
+                                   Text="Dia: "/>
                         <TextBlock Text="23"
                                    x:Name="dia"/>
                     </StackPanel>
@@ -239,7 +241,8 @@
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 HorizontalAlignment="Center">
-                        <TextBlock Text="Mes: "/>
+                        <TextBlock x:Name="mesT"
+                                   Text="Mes: "/>
                         <TextBlock Text="11"
                                    x:Name="mes"/>
                     </StackPanel>
@@ -247,7 +250,8 @@
                                 Grid.Row="1"
                                 Grid.Column="2"
                                 HorizontalAlignment="Center">
-                        <TextBlock Text="Año: "/>
+                        <TextBlock Text="Año: "
+                                   x:Name="añoT"/>
                         <TextBlock Text="1"
                                    x:Name="año"/>
                     </StackPanel>
@@ -268,7 +272,7 @@
 
         </Grid>
         <Grid x:Name="settingGrid"
-              Visibility="Visible">
+              Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
@@ -298,7 +302,8 @@
                         <RowDefinition Height="2*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="CONFIGURACION"
+                    <TextBlock x:Name="ConfigT"
+                               Text="CONFIGURACION"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
@@ -316,7 +321,8 @@
 
                     <StackPanel Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="MUSICA"
+                            <TextBlock x:Name="musicaT"
+                               Text="MUSICA"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
@@ -330,7 +336,8 @@
                                     Margin="0,30,30,30"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="SFX"
+                            <TextBlock x:Name="sfxT"
+                               Text="SFX"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
@@ -347,11 +354,19 @@
                     </StackPanel>
                     <StackPanel Grid.Row="2"
                                 VerticalAlignment="Center">
-                        <Button Content="IDIOMAS"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Margin="20"/>
-                        <Button Content="GUARDAR Y SALIR"
+                        <ComboBox x:Name="LenguageBox" Header="Cambiar de Idioma"  Width="256" HorizontalAlignment="Center" Height="78" FontSize="20" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" >
+                            <ComboBoxItem x:Name="Español" FontStretch="Expanded">
+                                <TextBlock Text="Español" Foreground="Black"/>
+                            </ComboBoxItem >
+                            <ComboBoxItem x:Name="Ingles" FontStretch="Expanded">
+                                <TextBlock x:Name="Inglés" Text="Inglés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                            <ComboBoxItem  x:Name="Frances" FontStretch="Expanded">
+                                <TextBlock x:Name="Francés" Text="Francés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <Button x:Name="GuartarT"
+                                Content="GUARDAR Y SALIR"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Bottom"
                                 Margin="20"
@@ -401,12 +416,14 @@
                             VerticalAlignment="Top">
                         <SymbolIcon Symbol="Back" />
                     </Button>
-                    <TextBlock Text="MENU DE TROPAS"
+                    <TextBlock x:Name ="MTropas"
+                               Text="MENÚ DE TROPAS"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
                                Margin="10"/>
-                    <TextBlock Text="NUMERO DE TROPAS"
+                    <TextBlock x:Name ="NTropas"
+                               Text="NÚMERO DE TROPAS"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="26"
@@ -437,51 +454,61 @@
                                 <ColumnDefinition Width ="2*"/>
                                 <ColumnDefinition Width ="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="ICONO"
+                            <TextBlock x:Name ="IcTropas"
+                                       Text="ICONO"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="NOMBRE"
+                            <TextBlock x:Name ="NomTropas"
+                                       Text="NOMBRE"
                                        Grid.Column="1"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="CANTIDAD"
+                            <TextBlock  x:Name ="CanTropas"
+                                       Text="CANTIDAD"
                                        Grid.Column="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="GUERREROS"
+                            <TextBlock  x:Name ="GuerTropas"
+                                       Text="GUERREROS"
                                        Grid.Column="1"
                                        Grid.Row="1"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="ARQUEROS"
+                            <TextBlock  x:Name ="ArqTropas"
+                                       Text="ARQUEROS"
                                        Grid.Column="1"
                                        Grid.Row="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="PIQUEROS"
+                            <TextBlock  x:Name ="PiqTropas"
+                                       Text="PIQUEROS"
                                        Grid.Column="1"
                                        Grid.Row="3"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="CABALLEROS"
+                            <TextBlock  x:Name ="CabTropas"
+                                       Text="CABALLEROS"
                                        Grid.Column="1"
                                        Grid.Row="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="TEMPLARIOS"
+                            <TextBlock  x:Name ="TempTropas"
+                                       Text="TEMPLARIOS"
                                        Grid.Column="1"
                                        Grid.Row="5"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="DRAGONES"
+                            <TextBlock  x:Name ="DragTropas"
+                                       Text="DRAGONES"
                                        Grid.Column="1"
                                        Grid.Row="6"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="ANGELES"
+                            <TextBlock  x:Name ="AngTropas"
+                                       Text="ANGELES"
                                        Grid.Column="1"
                                        Grid.Row="7"
                                        HorizontalAlignment="Center"
@@ -545,7 +572,8 @@
                                        Grid.Row="7"/>
                         </Grid>
                     </Border>
-                    <TextBlock Text="FORMACION DE TU EJERCITO"
+                    <TextBlock  x:Name ="FormTropas"
+                               Text="FORMACION DE TU EJÉRCITO"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="26"
@@ -646,12 +674,14 @@
                             VerticalAlignment="Top">
                         <SymbolIcon Symbol="Back" />
                     </Button>
-                    <TextBlock Text="MENU DE RECURSOS"
+                    <TextBlock x:Name="MRecursos"
+                               Text="MENU DE RECURSOS"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
                                Margin="10"/>
-                    <TextBlock Text="NUMERO DE RECURSOS"
+                    <TextBlock x:Name="NRecursos"
+                               Text="NÚMERO DE RECURSOS"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="26"
@@ -681,41 +711,49 @@
                                 <ColumnDefinition Width ="*"/>
                                 <ColumnDefinition Width ="*"/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="ICONO"
+                            <TextBlock x:Name="IcRecursos"
+                                       Text="ICONO"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="NOMBRE"
+                            <TextBlock x:Name="NomRecursos"
+                                       Text="NOMBRE"
                                        Grid.Column="1"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="CANTIDAD"
+                            <TextBlock x:Name="CantRecursos"
+                                       Text="CANTIDAD"
                                        Grid.Column="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="PRODUCCION"
+                            <TextBlock x:Name="ProdRecursos"
+                                       Text="PRODUCCIÓN"
                                        Grid.Column="3"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontWeight="Bold"/>
-                            <TextBlock Text="MONEDAS DE ORO"
+                            <TextBlock x:Name="OroRecursos"
+                                       Text="MONEDAS"
                                        Grid.Column="1"
                                        Grid.Row="1"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="MADERA"
+                            <TextBlock x:Name="MadRecursos"
+                                       Text="MADERA"
                                        Grid.Column="1"
                                        Grid.Row="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="PIEDRA"
+                            <TextBlock x:Name="PiedRecursos"
+                                       Text="PIEDRA"
                                        Grid.Column="1"
                                        Grid.Row="3"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="MINERALES"
+                            <TextBlock x:Name="MinRecursos"
+                                       Text="MINERALES"
                                        Grid.Column="1"
                                        Grid.Row="4"
                                        HorizontalAlignment="Center"
@@ -758,29 +796,34 @@
                                        Stretch="Uniform"
                                        Height="30"
                                        Grid.Row="4"/>
-                            <TextBlock Text="+450/DÍA"
+                            <TextBlock x:Name="oProdRecursos"
+                                       Text="+450/DIA"
                                        Grid.Column="3"
                                        Grid.Row="1"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="+14/SEMANA"
+                            <TextBlock x:Name="mProdRecursos"
+                                       Text="+14/SEMANA"
                                        Grid.Column="3"
                                        Grid.Row="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="+16/SEMANA"
+                            <TextBlock x:Name="pProdRecursos"
+                                       Text="+16/SEMANA"
                                        Grid.Column="3"
                                        Grid.Row="3"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="+5/SEMANA"
+                            <TextBlock x:Name="miProdRecursos"
+                                       Text="+5/SEMANA"
                                        Grid.Column="3"
                                        Grid.Row="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
                         </Grid>
                     </Border>
-                    <TextBlock Text="INTERCAMBIO DIARIO"
+                    <TextBlock x:Name="IntRecursos"
+                               Text="INTERCAMBIO DIARIO"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="26"

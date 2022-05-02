@@ -51,7 +51,8 @@
                 Grid.Column="1"
                 Grid.RowSpan="2"
                 Margin="50">
-                <TextBlock  Text="Turno:"
+                <TextBlock x:Name="turno" 
+                    Text="Turno:"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Margin="20,40,20,0"
@@ -187,9 +188,10 @@
                     BorderBrush="#c3bb38" 
                     Background="#fef8a0">
                 <Grid>
-                    <TextBlock Text="ORDEN DE TROPAS"
+                    <TextBlock x:Name="ordTropas"
+                               Text="ORDEN DE TROPAS"
                                HorizontalAlignment="Center"
-                               FontSize="22"/>
+                               FontSize="22" Height="96" VerticalAlignment="Bottom"/>
                     <Border Background="LightGoldenrodYellow"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Bottom"
@@ -314,7 +316,8 @@
                         <RowDefinition Height="3*"/>
                         <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="LIBRO DE HECHIZOS"
+                    <TextBlock x:Name="Hechizos"
+                               Text="LIBRO DE HECHIZOS"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="26"/>
@@ -336,15 +339,18 @@
                                 Background="#fef8a0">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <StackPanel>
-                                    <TextBlock Text="CONGELACIÓN"
+                                    <TextBlock x:Name="NomCong"
+                                               Text="CONGELACIÓN"
                                                FontSize="18"
                                                />
-                                    <TextBlock Text="20 Maná"
+                                    <TextBlock x:Name="ManaCong"
+                                               Text="20 Maná"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
                                                FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="Causa que un enemigo se quede congelado durante un turno, perdiéndolo y recibiendo un poco de daño."
+                                <TextBlock x:Name="TextCong"
+                                           Text="Causa que un enemigo se quede congelado durante un turno, perdiéndolo y recibiendo un poco de daño."
                                            VerticalAlignment="Center"
                                            FontSize="12" Width="393"
                                            TextWrapping="Wrap"
@@ -372,15 +378,18 @@
                                 Background="#fef8a0">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <StackPanel>
-                                    <TextBlock Text="bola de fuego"
+                                    <TextBlock x:Name="NomFueg"
+                                               Text="BOLA DE FUEGO"
                                                FontSize="18"
                                                />
-                                    <TextBlock Text="40 Maná"
+                                    <TextBlock x:Name="ManaFueg"
+                                               Text="40 Maná"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Center"
                                                FontSize="12"/>
                                 </StackPanel>
-                                <TextBlock Text="Cae una bola de fuego en un rango de casillas de 3x3 causando mucho daño y causando quemadura a las tropas afectadas"
+                                <TextBlock x:Name="TextFueg"
+                                           Text="Cae una bola de fuego en un rango de casillas de 3x3 causando mucho daño y causando quemadura a las tropas afectadas."
                                            VerticalAlignment="Center"
                                            FontSize="12" Width="412"
                                            TextWrapping="Wrap"
@@ -392,7 +401,7 @@
             </Border>
         </Grid>
         <Grid x:Name="settingGrid"
-              Visibility="Collapsed">
+              Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
@@ -422,7 +431,8 @@
                         <RowDefinition Height="2*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="CONFIGURACION"
+                    <TextBlock x:Name="ConfigT"
+                               Text="CONFIGURACION"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
@@ -440,7 +450,8 @@
 
                     <StackPanel Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="MUSICA"
+                            <TextBlock x:Name="musicaT"
+                               Text="MUSICA"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
@@ -471,7 +482,19 @@
                     </StackPanel>
                     <StackPanel Grid.Row="2"
                                 VerticalAlignment="Center">
-                        <Button Content="GUARDAR Y SALIR"
+                        <ComboBox x:Name="LenguageBox" Header="Cambiar de Idioma"  Width="256" HorizontalAlignment="Center" Height="78" FontSize="20" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" >
+                            <ComboBoxItem x:Name="Español" FontStretch="Expanded">
+                                <TextBlock Text="Español" Foreground="Black"/>
+                            </ComboBoxItem >
+                            <ComboBoxItem x:Name="Ingles" FontStretch="Expanded">
+                                <TextBlock x:Name="Inglés" Text="Inglés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                            <ComboBoxItem  x:Name="Frances" FontStretch="Expanded">
+                                <TextBlock x:Name="Francés" Text="Francés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <Button x:Name="GuartarT"
+                                Content="GUARDAR Y SALIR"
                                 FontSize="30"
                                 HorizontalAlignment="Center"
                                 Margin="20"
