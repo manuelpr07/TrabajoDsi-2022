@@ -64,11 +64,31 @@ namespace Trabajo1
         private void NewTurn(object sender, RoutedEventArgs e)
         {
             int newTurn = int.Parse(Turn.Text);
-            if (newTurn < 10)
+            if (newTurn > 9)
             {
                 Frame.Navigate(typeof(Map));
             }
             else Turn.Text = Convert.ToString(newTurn += 1);
+        }
+        private void SpellFrost(object sender, RoutedEventArgs e)
+        {
+            if(Frost.BorderThickness == new Thickness(0))
+            {
+                Frost.BorderThickness = new Thickness(5);
+                Fireball.BorderThickness = new Thickness(0);
+
+            }
+            else Frost.BorderThickness = new Thickness(0);
+        }
+        private void SpellFire(object sender, RoutedEventArgs e)
+        {
+            if (Fireball.BorderThickness == new Thickness(0))
+            {
+                Fireball.BorderThickness = new Thickness(5);
+                Frost.BorderThickness = new Thickness(0);
+
+            }
+            else Fireball.BorderThickness = new Thickness(0);
         }
     }
 }

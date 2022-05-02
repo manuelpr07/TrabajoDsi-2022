@@ -62,11 +62,11 @@ namespace Trabajo1
         {
             if(int.Parse(oro.Text) >= 100)
             {
-                int newOro = int.Parse(oro.Text);
-                oro.Text = Convert.ToString(newOro -= 100);
+                int newOro = int.Parse(oro.Text) - 100;
+                oro.Text = Convert.ToString(newOro);
 
-                int newMadera = int.Parse(madera.Text);
-                madera.Text = Convert.ToString(newMadera += 1);
+                int newMadera = int.Parse(madera.Text) + 1;
+                madera.Text = Convert.ToString(newMadera);
                 if(newOro < 100)
                 {
                     StoreButton1.IsEnabled = false;
@@ -77,26 +77,35 @@ namespace Trabajo1
         {
             if (int.Parse(mineral.Text) >= 1)
             {
-                int newMineral = int.Parse(mineral.Text);
-                mineral.Text = Convert.ToString(newMineral -= 1);
+                int newMineral = int.Parse(mineral.Text) - 1;
+                mineral.Text = Convert.ToString(newMineral);
 
-                int newPiedra = int.Parse(piedra.Text);
-                piedra.Text = Convert.ToString(newPiedra += 4);
+                int newPiedra = int.Parse(piedra.Text) + 4;
+                piedra.Text = Convert.ToString(newPiedra);
                 if (newMineral < 1)
                 {
                     StoreButton2.IsEnabled = false;
                 }
             }
         }
-        //private void CommandBar_KeyDown(object sender, KeyRoutedEventArgs e)
-        //{
-        //    if (e.Key == Windows.System.VirtualKey.Tab)
-        //    {
-        //        e.Handled = true;
-        //        DependencyObject candidate = null;
-        //        candidate = FocusManager.FindNextFocusableElement(FocusNavigationDirection.Next);
-        //        (candidate as Control).Focus(FocusState.Keyboard);
-        //    }
-        //}
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int newDay = int.Parse(dia.Text) + 1;
+            int newMonth = int.Parse(mes.Text);
+            int newYear = int.Parse(año.Text);
+            if (newDay > 30)
+            {
+                newDay = 1;
+                newMonth = int.Parse(mes.Text) + 1;
+                if (newMonth > 12)
+                {
+                    newMonth = 1;
+                    newYear = int.Parse(mes.Text) + 1;
+                }
+            }
+            dia.Text = Convert.ToString(newDay);
+            mes.Text = Convert.ToString(newMonth);
+            año.Text = Convert.ToString(newYear);
+        }
     }
 }

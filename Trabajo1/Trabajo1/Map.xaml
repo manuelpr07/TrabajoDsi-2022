@@ -38,7 +38,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button Click="EnterCombat"
-                TabIndex="3"
+                TabIndex="2"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
@@ -49,7 +49,7 @@
                 Width="80"
                 Margin="32,20,20,85" />
             <Button Click="EnterCombat"
-                TabIndex="4"
+                TabIndex="3"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
@@ -60,7 +60,7 @@
                 Width="110"
                 Margin="20,20,150,15" />
             <Button Click="EnterCombat"
-                TabIndex="5"
+                TabIndex="4"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Background="Transparent"
@@ -71,7 +71,7 @@
                 Width="110"
                 Margin="20,20,230,40" />
             <Button Click="EnterCombat"
-                TabIndex="6"
+                TabIndex="5"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Top"
                 Background="Transparent"
@@ -99,10 +99,14 @@
                             Source="Assets/Heroe.png"
                             Stretch="Uniform" Width="124"  
                             />
-                    <Image  x:Name="tiempo"         
+                    <Button BorderThickness="0"
+                            Background="Transparent"
+                            Click="Button_Click_1">
+                        <Image  x:Name="tiempo"         
                             Source="Assets/reloj.png"
-                            Stretch="Uniform" Height="116" Width="79"  
+                            Stretch="Uniform" Height="116" Width="79"
                             />
+                    </Button>
                 </StackPanel>
 
             </Border>
@@ -145,7 +149,7 @@
                         Margin="0,0,0,100">
 
                 <Button x:Name ="RecursosBorder"
-                        TabIndex="1"
+                        TabIndex="0"
                         BorderThickness="1"
                         Opacity=".85"   
                         Width="120"
@@ -163,7 +167,7 @@
                             Source="Assets/crystals.png" 
                             Stretch="Uniform" />
                 </Button>
-                <Button TabIndex="2"
+                <Button TabIndex="1"
                         x:Name ="TropasBorder"
                         BorderThickness="1"
                         Opacity=".85"   
@@ -187,7 +191,7 @@
             </StackPanel>
 
             <Button Click="Settings"
-                            TabIndex="0"
+                            TabIndex="6"
                             Background="Transparent"
                             BorderThickness="0"
                             Grid.Column="2"
@@ -198,10 +202,73 @@
                             Margin="190,10,0,0">
                 <SymbolIcon Symbol="Setting" />
             </Button>
+            <Border BorderThickness="1"
+                    Opacity=".85"   
+                    Width="171"
+                    Height="51"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    CornerRadius="15" 
+                    BorderBrush="Black" 
+                    Background="#fef8a0"
+                    Margin="0,40,0,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="CALENDARIO"
+                               HorizontalAlignment="Center"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3"/>
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="Dia: "/>
+                        <TextBlock Text="23"
+                                   x:Name="dia"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="Mes: "/>
+                        <TextBlock Text="11"
+                                   x:Name="mes"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                HorizontalAlignment="Center">
+                        <TextBlock Text="Año: "/>
+                        <TextBlock Text="1"
+                                   x:Name="año"/>
+                    </StackPanel>
+                </Grid>
+                <!--<StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="CALENDARIO"
+                               HorizontalAlignment="Center"/>
+                    <StackPanel  Orientation="Horizontal" 
+                                 HorizontalAlignment="Center">
+                        
+                        <TextBlock Text="Mes: "/>
+                        <TextBlock Text="11"/>
+                        <TextBlock Text="Año: "/>
+                        <TextBlock Text="1"/>
+                    </StackPanel>
+                </StackPanel>-->
+            </Border>
 
         </Grid>
         <Grid x:Name="settingGrid"
-              Visibility="Collapsed">
+              Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
@@ -785,7 +852,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontSize="15"
                                                Text="1"
-                                               Margin="10"
+                                               Margin="5"
                                                VerticalAlignment="Center"/>
                                     <Image     Source="Assets/crystals.png"          
                                        Height="30"

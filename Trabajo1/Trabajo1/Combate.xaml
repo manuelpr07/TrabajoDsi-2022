@@ -119,7 +119,7 @@
 
             </Border>
             <Button Click="Settings"
-                    TabIndex="0"
+                    TabIndex="3"
                     Background="Transparent"
                     BorderThickness="0"
                     Grid.Column="2"
@@ -147,7 +147,7 @@
                     Background="Transparent">
                 <StackPanel x:Name ="ManaEnergyLayout" Margin="0,-24,-13,0" VerticalAlignment="Bottom">
                     <StackPanel x:Name="images"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
-                        <Button TabIndex="3"
+                        <Button TabIndex="0"
                                 Background="transparent"
                                 Click="EnterSpells"
                                 Height="119" 
@@ -286,7 +286,7 @@
             </Border>
         </Grid>
         <Grid x:Name="SpellGrid"
-              Visibility="Visible">
+              Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="4*"/>
@@ -325,13 +325,14 @@
                                Stretch="Uniform" Width="163" Height="183"
                                />
                         <Button x:Name="Frost"
-                                BorderThickness="1"   
+                                Click="SpellFrost"
+                                BorderThickness="0"   
                                 Width="567"
                                 Height="100"
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 VerticalAlignment="Center"
-                                BorderBrush="#c3bb38" 
+                                BorderBrush="#00c8f8" 
                                 Background="#fef8a0">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <StackPanel>
@@ -361,13 +362,13 @@
                                />
                         <Button 
                                 x:Name="Fireball"
-                                BorderThickness="1"   
+                                Click="SpellFire"
+                                BorderThickness="0"   
                                 Width="567"
                                 Height="100"
                                 Grid.Row="1"
-                                Grid.Column="1"
                                 VerticalAlignment="Center"
-                                BorderBrush="#c3bb38" 
+                                BorderBrush="#e61610" 
                                 Background="#fef8a0">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                                 <StackPanel>
