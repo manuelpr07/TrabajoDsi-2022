@@ -119,6 +119,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CargarPartida.xaml.cs">
+      <DependentUpon>CargarPartida.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,7 @@
     <Content Include="Assets\energy.png" />
     <Content Include="Assets\espanol.png" />
     <Content Include="Assets\fireball.png" />
+    <Content Include="Assets\fondo-dragon-blur.jpg" />
     <Content Include="Assets\fondo-dragon.jpg" />
     <Content Include="Assets\fondoGimp.jpg" />
     <Content Include="Assets\frances.png" />
@@ -181,6 +185,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="CargarPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Combate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
