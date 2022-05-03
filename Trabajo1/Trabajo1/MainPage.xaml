@@ -7,6 +7,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <Style x:Key="BasicStyle" TargetType="ContentControl">
+            <Setter Property="Width" Value="130" />
+            <Setter Property="Height" Value="30" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button"
+           BasedOn="{StaticResource BasicStyle}">
+            <Setter Property="BorderBrush" Value="#CC00008B" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Background" Value="#CC00FFFF" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontFamily" Value="Forte" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Height" Value="60" />
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Margin" Value="15" />
+
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,12 +60,20 @@
             Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
             FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,20,0,0" Margin="60,40,30,0">Hour</TextBlock>
 
-        <Button Content="Go To World Map"
-                Click="Page1Button_OnClick"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Grid.Row="1"
-                Margin="20" />
+        <StackPanel Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Vertical">
+            <Button Content="Nueva Partida" Style="{StaticResource ButtonStyle}"
+                Click="Page1Button_OnClick" Width="420"/>
+            <Button Content="Cargar Partida" Style="{StaticResource ButtonStyle}"
+                Click="Page1Button_OnClick" Width="420"/>
+        
+            <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Modos de Juego" Style="{StaticResource ButtonStyle}"
+                    Click="Page1Button_OnClick"/>
+                <Button Content="Configuración" Style="{StaticResource ButtonStyle}"
+                    Click="Page1Button_OnClick"/>
+            </StackPanel>
+        </StackPanel>
+
 
     </Grid>
 
