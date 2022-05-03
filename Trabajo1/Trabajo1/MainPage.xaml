@@ -9,12 +9,40 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.ColumnSpan="4" Grid.RowSpan="9" Stretch="Fill" Source="/Assets/fondo-dragon.jpg" Margin="-348,0,0,-232" />
+        <Image Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,40,0,0" Source="/Assets/shield-icon.png" Height="222" Grid.Row="0"/>
+
+        <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
+            Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
+            FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,0,3,0" Margin="0,40,30,0">Mighty</TextBlock>
+        <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
+            Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
+            FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,20,0,0" Margin="60,40,30,0">Hour</TextBlock>
+
         <Button Content="Go To World Map"
                 Click="Page1Button_OnClick"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
                 Grid.Row="1"
                 Margin="20" />
+
     </Grid>
 
 </Page>

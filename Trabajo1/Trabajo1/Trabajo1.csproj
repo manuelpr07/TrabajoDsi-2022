@@ -148,6 +148,7 @@
     <Content Include="Assets\energy.png" />
     <Content Include="Assets\espanol.png" />
     <Content Include="Assets\fireball.png" />
+    <Content Include="Assets\fondo-dragon.jpg" />
     <Content Include="Assets\fondoGimp.jpg" />
     <Content Include="Assets\frances.png" />
     <Content Include="Assets\frost.png" />
@@ -159,6 +160,7 @@
     <Content Include="Assets\piqueros.png" />
     <Content Include="Assets\reloj.png" />
     <Content Include="Assets\retirada.png" />
+    <Content Include="Assets\shield-icon.png" />
     <Content Include="Assets\spellClosed.png" />
     <Content Include="Assets\spellOpen.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
