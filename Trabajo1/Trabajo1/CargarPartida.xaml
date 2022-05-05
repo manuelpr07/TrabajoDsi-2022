@@ -14,7 +14,7 @@
             <Setter Property="Height" Value="30" />
         </Style>
 
-        <Style x:Key="TextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BasicStyle}">
+        <Style x:Key="TextBoxStyle" TargetType="TextBox" >
             <Setter Property="Foreground" Value="Black" />
             <Setter Property="Background" Value="#CC00FFFF" />
             <Setter Property="FontSize" Value="22" />
@@ -49,7 +49,7 @@
         <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="5" Background="#CC00FFFF" BorderBrush="#CC00008B" BorderThickness="1">
             <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
             Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top"
-            FontFamily="Forte" FontSize="52" FontWeight="Bold" Foreground="Black" Padding="0,0,3,0" Margin="0,60,30,0">Configuración</TextBlock>
+            FontFamily="Forte" FontSize="52" FontWeight="Bold" Foreground="Black" Padding="0,0,3,0" Margin="0,30,30,0">Configuración</TextBlock>
             <StackPanel BorderThickness="1" BorderBrush="#CC00008B"
                 HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBox Text="MANUEL_01" Style="{StaticResource TextBoxStyle}"></TextBox>
@@ -57,6 +57,16 @@
                 <TextBox Text="VACIO" Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray"></TextBox>
                 <TextBox Text="VACIO" Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray"></TextBox>
             </StackPanel>
+            <Button Click="ReturnMap"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                <SymbolIcon Symbol="Back" />
+            </Button>
         </Grid>
 
         

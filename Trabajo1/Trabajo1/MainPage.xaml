@@ -33,47 +33,148 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Image Grid.ColumnSpan="4" Grid.RowSpan="9" Stretch="Fill" Source="/Assets/fondo-dragon.jpg" Margin="-348,0,0,-232" />
-        <Image Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,40,0,0" Source="/Assets/shield-icon.png" Height="222" Grid.Row="0"/>
+        <Image Stretch="Fill" Source="/Assets/fondo-dragon.jpg" Margin="-348,0,0,-232" />
+        <Grid x:Name="MainGrid"
+              Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Grid.ColumnSpan="2" Grid.RowSpan="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,40,0,0" Source="/Assets/shield-icon.png" Height="222" Grid.Row="0"/>
 
-        <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
-            Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
-            FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,0,3,0" Margin="0,40,30,0">Mighty</TextBlock>
-        <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
-            Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
-            FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,20,0,0" Margin="60,40,30,0">Hour</TextBlock>
+            <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
+                Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
+                FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,0,3,0" Margin="0,40,30,0">Mighty</TextBlock>
+            <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
+                Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"
+                FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,20,0,0" Margin="60,40,30,0">Hour</TextBlock>
 
-        <StackPanel Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Vertical">
-            <Button Content="Nueva Partida" Style="{StaticResource ButtonStyle}"
-                Click="Page1Button_OnClick" Width="420"/>
-            <Button Content="Cargar Partida" Style="{StaticResource ButtonStyle}"
-                Click="Page1Button_OnClick" Width="420"/>
+            <StackPanel Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Vertical">
+                <Button Content="Nueva Partida" Style="{StaticResource ButtonStyle}"
+                    Click="Page1Button_OnClick" Width="420"/>
+                <Button Content="Cargar Partida" Style="{StaticResource ButtonStyle}"
+                    Click="Page2Button_OnClick" Width="420"/>
         
-            <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Modos de Juego" Style="{StaticResource ButtonStyle}"
-                    Click="Page1Button_OnClick"/>
-                <Button Content="Configuración" Style="{StaticResource ButtonStyle}"
-                    Click="Page1Button_OnClick"/>
+                <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Content="Modos de Juego" Style="{StaticResource ButtonStyle}"
+                        Click="Page1Button_OnClick"/>
+                    <Button Content="Configuración" Style="{StaticResource ButtonStyle}"
+                        Click="SettingsButton"/>
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
 
+        </Grid>
+        <Grid x:Name="settingGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name ="SettingsBorder"
+                        BorderThickness="1"
+                        Opacity=".85"   
+                        Width="800"
+                        Height="600"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15" 
+                        BorderBrush="Black" 
+                        Background="#CC00FFFF">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="ConfigT"
+                               Text="CONFIGURACION"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="10"/>
+                    <Button Click="ReturnMap"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <SymbolIcon Symbol="Back" />
+                    </Button>
+
+                    <StackPanel Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="musicaT"
+                               Text="MUSICA"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="30"/>
+                            <Slider x:Name="music"  
+                                    Minimum="0" 
+                                    Maximum="10"
+                                    IsDirectionReversed="true"
+                                    VerticalAlignment="Center"
+                                    Width="400"
+                                    Margin="0,30,30,30"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="sfxT"
+                               Text="SFX"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="40,30,30,40"/>
+                            <Slider x:Name="SFX"  
+                                    Minimum="0" 
+                                    Maximum="10"
+                                    IsDirectionReversed="true"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right"
+                                    Width="400"
+                                    Margin="70,30,30,30"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"
+                                VerticalAlignment="Center">
+                        <ComboBox x:Name="LenguageBox" Header="Cambiar de Idioma"  Width="256" HorizontalAlignment="Center" Height="78" FontSize="20" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" >
+                            <ComboBoxItem x:Name="Español" FontStretch="Expanded">
+                                <TextBlock Text="Español" Foreground="Black"/>
+                            </ComboBoxItem >
+                            <ComboBoxItem x:Name="Ingles" FontStretch="Expanded">
+                                <TextBlock x:Name="Inglés" Text="Inglés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                            <ComboBoxItem  x:Name="Frances" FontStretch="Expanded">
+                                <TextBlock x:Name="Francés" Text="Francés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
 
     </Grid>
 

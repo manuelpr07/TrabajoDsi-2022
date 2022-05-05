@@ -26,5 +26,10 @@ namespace Trabajo1
         {
             this.InitializeComponent();
         }
+        private void ReturnMap(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+        
     }
 }

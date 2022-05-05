@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Gaming.Input;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,12 +25,82 @@ namespace Trabajo1
     public sealed partial class Map : Page
     {
         private string Idiomas;
+
+        CoreCursor CursorArrow = null;
+
+        private readonly object myLock = new object();
+        private List<Gamepad> myGamepads = new List<Gamepad>();
+        private Gamepad mainGamepad;
+
+        private GamepadReading reading, prereading;
+        private GamepadVibration vibration;
+
+        DispatcherTimer GamePadTimer;
+
         public Map()
         {
             this.InitializeComponent();
+            CursorArrow = new CoreCursor(CoreCursorType.Arrow, 0);
+            Window.Current.CoreWindow.PointerCursor = CursorArrow;
             mapGrid.Visibility = Visibility.Visible;
             Idiomas = "spanish";
+            Español.IsSelected = true;
+            Gamepad.GamepadAdded += (object sender, Gamepad e) =>
+            {
+                // comprueba si el gamepad está en la lista de myGamepads, si no lo añade
+                lock (myLock)
+                {
+                    bool gamepadInList = myGamepads.Contains(e);
+
+                    if (!gamepadInList)
+                    {
+                        myGamepads.Add(e);
+                        mainGamepad = myGamepads[0];
+                    }
+                }
+            };
+            Gamepad.GamepadRemoved += (object sender, Gamepad e) =>
+            {
+                lock (myLock)
+                {
+                    int indexRemoved = myGamepads.IndexOf(e);
+
+                    if (indexRemoved > -1)
+                    {
+                        if (mainGamepad == myGamepads[indexRemoved])
+                        {
+                            mainGamepad = null;
+                        }
+
+                        myGamepads.RemoveAt(indexRemoved);
+                    }
+                }
+            };
         }
+        void LeeMando()
+        {
+            if (mainGamepad != null)
+            {
+                prereading = reading;
+                reading = mainGamepad.GetCurrentReading();
+            }
+
+        }
+        void GamePadTimer_Tick(object sender, object e)
+        { //Función de respuesta al Timer cada 0.01s
+            if (mainGamepad != null)
+            {
+                LeeMando(); //Lee GamePAd
+            }
+        }
+        public void GamePadTimerSetup()
+        {
+            GamePadTimer = new DispatcherTimer();
+            GamePadTimer.Tick += GamePadTimer_Tick;
+            GamePadTimer.Interval = new TimeSpan(100000);
+            GamePadTimer.Start();
+        }
+
         private void EnterResources(object sender, RoutedEventArgs e)
         {
             mapGrid.Visibility = Visibility.Collapsed;
@@ -46,6 +118,19 @@ namespace Trabajo1
         protected override void OnNavigatedTo(NavigationEventArgs e) 
         {          
             Idiomas = e.Parameter as string;
+            if(Idiomas == "spanish")
+            {
+                Español.IsSelected = true;
+            }
+            else if (Idiomas == "english")
+            {
+                Ingles.IsSelected = true;
+            }
+            else if (Idiomas == "french")
+            {
+                Frances.IsSelected = true;
+            }
+            ChangeLenguages(Idiomas);
         }
         private void Settings(object sender, RoutedEventArgs e)
         {
