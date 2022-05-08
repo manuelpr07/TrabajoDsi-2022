@@ -18,8 +18,20 @@
             <Setter Property="CornerRadius" Value="2"/>
             <Setter Property="FontSize" Value="36"/>
         </Style>
+
+        <Style TargetType="Border" x:Key="DragDropTarget">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="ButtonTarget">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
     </Page.Resources>
-    <Grid>
+    <Grid AllowDrop="True">
 
         <Image x:Name="MiFondo"         
                 Source="Assets/fondoGimp.jpg" 
@@ -437,7 +449,7 @@
                         Margin="0,43,0,0"
                         BorderBrush="Black" 
                         Background="#fef8a0">
-                        <Grid>
+                        <Grid AllowDrop="True">
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -554,37 +566,130 @@
                                        Grid.Row="7"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <Image     Source="Assets/tropas.png"          
+                            <Image     x:Name="_tropas"
+                                       Source="Assets/tropas.png"          
                                        Stretch="Uniform"
-                                       Grid.Row="1"/>
-                            <Image     Source="Assets/arqueros.png"          
+                                       Grid.Row="1" CanDrag="True"
+                                       DragStarting="DropBorder_DragItemStarting"/>
+                            <Image     x:Name="_arqueros"
+                                       Source="Assets/arqueros.png"          
                                        Stretch="Uniform"
-                                       Grid.Row="2"/>
-                            <Image     Source="Assets/piqueros.png"          
+                                       Grid.Row="2" CanDrag="True"
+                                       DragStarting="DropBorder_DragItemStarting"/>
+                            <Image     x:Name="_piqueros"
+                                       Source="Assets/piqueros.png"          
                                        Stretch="Uniform"
                                        Height="20"
-                                       Grid.Row="3"/>
-                            <Image     Source="Assets/caballeros.png"          
+                                       Grid.Row="3" CanDrag="True"
+                                       DragStarting="DropBorder_DragItemStarting"/>
+                            <Image     x:Name="_caballeros"
+                                       Source="Assets/caballeros.png"          
                                        Stretch="Uniform"
-                                       Grid.Row="4"/>
-                            <Image     Source="Assets/templarios.png"          
+                                       Grid.Row="4" CanDrag="True"
+                                       DragStarting="DropBorder_DragItemStarting"/>
+                            <Image     x:Name="_templarios"
+                                       Source="Assets/templarios.png"          
                                        Stretch="Uniform"
-                                       Grid.Row="5"/>
-                            <Image     Source="Assets/dragon.png"          
+                                       Grid.Row="5" CanDrag="True"
+                                       DragStarting="DropBorder_DragItemStarting"/>
+                            <Image     x:Name="_dragon"
+                                       Source="Assets/dragon.png"          
                                        Stretch="Uniform"
-                                       Grid.Row="6"/>
-                            <Image     Source="Assets/angeles.png"          
+                                       Grid.Row="6" CanDrag="True"
+                                       DragStarting="DropBorder_DragItemStarting"/>
+                            <Image     x:Name="_angeles"
+                                       Source="Assets/angeles.png"          
                                        Stretch="Uniform"
-                                       Grid.Row="7"/>
+                                       Grid.Row="7" CanDrag="True"
+                                       DragStarting="DropBorder_DragItemStarting"/>
                         </Grid>
                     </Border>
                     <TextBlock  x:Name ="FormTropas"
                                Text="FORMACION DE TU EJÉRCITO"
                                HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
+                               VerticalAlignment="Top" Margin="0,0,0,0"
                                FontSize="26"
                                Grid.Row="2"/>
-                    <Border BorderThickness="1"
+                    <GridView x:Name="DropGridView" Grid.Row="2" SelectionMode="None"
+                              Width="350" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center"
+                              BorderThickness="1" CornerRadius="15,15,15,15" Margin="0,25,0,0" 
+                              BorderBrush="Black" Background="#fef8a0" Padding="10,10,10,10">
+
+                        <Border x:Name="DropBorderK0" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK0" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK0" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK1" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK1" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK1" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK2" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK2" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK2" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK3" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK3" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK3" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK4" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK4" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK4" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK5" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK5" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK5" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+
+                        <Border x:Name="DropBorderK6" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK6" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK6" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK7" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK7" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK7" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK8" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK8" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK8" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK9" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK9" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK9" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBorderK10" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK10" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK10" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                        <Border x:Name="DropBordeK11" Style="{StaticResource DragDropTarget}"
+                                DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
+                            <Button x:Name="DropButtonK11" Click="eraseTarget"  Style="{StaticResource ButtonTarget}">
+                                <Image x:Name="DropImageK11" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                            </Button>
+                        </Border>
+                    </GridView>
+                    <!--<Border BorderThickness="1"
                         Width="700"
                         Height="100"
                         HorizontalAlignment="Center"
@@ -635,7 +740,7 @@
                                        Grid.ColumnSpan="2"
                                        Grid.RowSpan="2"/>
                         </Grid>
-                    </Border>
+                    </Border>-->
                 </Grid>
             </Border>
         </Grid>

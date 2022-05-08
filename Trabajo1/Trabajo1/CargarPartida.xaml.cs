@@ -27,6 +27,7 @@ namespace Trabajo1
         {
             this.InitializeComponent();
             Idiomas = "spanish";
+            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
         }
         private void ReturnMap(object sender, RoutedEventArgs e)
         {
@@ -50,6 +51,21 @@ namespace Trabajo1
             else if (l == "french")
             {
                 cargarT.Text = "Chargement du jeu";
+            }
+        }
+
+        private void TextBox_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)
+        {
+            var c = sender as TextBox;
+            if (c.Text != null)
+            {
+                c.SetValue(BackgroundProperty, "#CC00C3FF");
+                c.SetValue(BackgroundProperty, "Black");
+            }
+            else
+            {
+                c.SetValue(BackgroundProperty, "DarkCyan");
+                c.SetValue(ForegroundProperty, "DarkGray");
             }
         }
     }

@@ -16,13 +16,14 @@
 
         <Style x:Key="TextBoxStyle" TargetType="TextBox" >
             <Setter Property="Foreground" Value="Black" />
-            <Setter Property="Background" Value="#CC00FFFF" />
+            <Setter Property="Background" Value="#CC00C3FF" />
             <Setter Property="FontSize" Value="22" />
             <Setter Property="TextAlignment" Value="Center" />
             <Setter Property="FontWeight" Value="Light" />
             <Setter Property="FontFamily" Value="Caveat"/>
             <Setter Property="Height" Value="60" />
             <Setter Property="Width" Value="300" />
+            <Setter Property="PlaceholderText" Value="SIN USAR" />
 
         </Style>
     </Page.Resources>
@@ -54,12 +55,12 @@
             <TextBlock
             x:Name="cargarT" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
             FontFamily="Forte" FontSize="52" FontWeight="Bold" Foreground="Black" Padding="0,0,3,0" Margin="197,31,0,0">Cargar Partida</TextBlock>
-            <StackPanel BorderThickness="1" BorderBrush="#CC00008B"
-                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,157,0,0">
-                <TextBox Text="MANUEL_01" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBox Text="PARTIDA_PABLO" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBox Text="VACIO" Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray"></TextBox>
-                <TextBox Text="VACIO" Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray"></TextBox>
+            <StackPanel x:Name="partidas" BorderThickness="1" BorderBrush="#CC00008B" Grid.RowSpan="2"
+                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,117,0,0">
+                <TextBox Text="MANUEL_01" Style="{StaticResource TextBoxStyle}" ManipulationCompleted="TextBox_ManipulationCompleted"></TextBox>
+                <TextBox Text="PARTIDA_PABLO" Style="{StaticResource TextBoxStyle}" ManipulationCompleted="TextBox_ManipulationCompleted"></TextBox>
+                <TextBox Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray" ManipulationCompleted="TextBox_ManipulationCompleted"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray" ManipulationCompleted="TextBox_ManipulationCompleted"/>
             </StackPanel>
             <Button Click="ReturnMap"
                             Grid.Row="0" 

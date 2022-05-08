@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Gaming.Input;
@@ -421,6 +422,42 @@ namespace Trabajo1
                     if (player.Volume - 0.01 >= 0) player.Volume += (e.NewValue - e.OldValue) / 10; ;
                 }
             }
+        }
+
+        private void DropBorder_DragItemStarting(object sender, DragStartingEventArgs e)
+        {
+            Image Item = sender as Image;
+            var aux = sender as StackPanel;
+            string img = Item.Name.ToString();
+            e.Data.SetText(img);
+            e.Data.RequestedOperation = DataPackageOperation.Copy;
+        }
+
+        private void DropBorder_DragEnter(object sender, Windows.UI.Xaml.DragEventArgs e)
+        {
+
+            //bool win = (_dragOperation != null) && e.DataView.Contains(StandardDataFormats.Text) && IsSymbolTargetBorder(sender);
+            //e.AcceptedOperation = win ? DataPackageOperation.Copy : DataPackageOperation.None;
+            //e.DragUIOverride.IsCaptionVisible = false;
+        }
+
+        private void DropBorder_Drop(object sender, Windows.UI.Xaml.DragEventArgs e)
+        {
+            var b = sender as Border;
+            var s = b.Name.Split('K');
+            var n = "DropImageK" + s[s.Length - 1];
+            Image dst = FindName(n) as Image;
+            Image src = FindName(e.DataView.GetTextAsync().ToString()) as Image;
+            dst.Source = src.Source;
+        }
+
+        private void eraseTarget(object sender, RoutedEventArgs e)
+        {
+            var b = sender as Button;
+            var s = b.Name.Split('K');
+            var n = "DropImageK" + s[s.Length - 1];
+            var img = FindName(n) as Image;
+            img.Source = null;
         }
     }
 }
