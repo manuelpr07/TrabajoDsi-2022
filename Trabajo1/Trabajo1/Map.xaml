@@ -20,8 +20,8 @@
         </Style>
 
         <Style TargetType="Border" x:Key="DragDropTarget">
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="50" />
+            <Setter Property="Width" Value="49.9"/>
+            <Setter Property="Height" Value="49.9" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="Black"/>
         </Style>
@@ -29,9 +29,12 @@
         <Style TargetType="Button" x:Key="ButtonTarget">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="49.9"/>
+            <Setter Property="Height" Value="49.9"/>
+            <Setter Property="Background" Value="#fef8a0" />
         </Style>
     </Page.Resources>
-    <Grid AllowDrop="True">
+    <Grid>
 
         <Image x:Name="MiFondo"         
                 Source="Assets/fondoGimp.jpg" 
@@ -387,7 +390,7 @@
             </Border>
         </Grid>
         <Grid x:Name="troopsGrid"
-              Visibility="Collapsed">
+              Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
@@ -449,7 +452,7 @@
                         Margin="0,43,0,0"
                         BorderBrush="Black" 
                         Background="#fef8a0">
-                        <Grid AllowDrop="True">
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition/>
@@ -569,7 +572,7 @@
                             <Image     x:Name="_tropas"
                                        Source="Assets/tropas.png"          
                                        Stretch="Uniform"
-                                       Grid.Row="1" CanDrag="True"
+                                       Grid.Row="1" CanDrag="True" 
                                        DragStarting="DropBorder_DragItemStarting"/>
                             <Image     x:Name="_arqueros"
                                        Source="Assets/arqueros.png"          
@@ -611,9 +614,9 @@
                                FontSize="26"
                                Grid.Row="2"/>
                     <GridView x:Name="DropGridView" Grid.Row="2" SelectionMode="None"
-                              Width="350" Height="130" HorizontalAlignment="Center" VerticalAlignment="Center"
+                              Width="351" Height="131" HorizontalAlignment="Center" VerticalAlignment="Center"
                               BorderThickness="1" CornerRadius="15,15,15,15" Margin="0,25,0,0" 
-                              BorderBrush="Black" Background="#fef8a0" Padding="10,10,10,10">
+                              BorderBrush="Black" Background="#fef8a0" Padding="13,12,12,10" UseLayoutRounding="False">
 
                         <Border x:Name="DropBorderK0" Style="{StaticResource DragDropTarget}"
                                 DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">

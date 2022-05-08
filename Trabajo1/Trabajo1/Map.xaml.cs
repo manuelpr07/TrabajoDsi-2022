@@ -430,25 +430,35 @@ namespace Trabajo1
             var aux = sender as StackPanel;
             string img = Item.Name.ToString();
             e.Data.SetText(img);
-            e.Data.RequestedOperation = DataPackageOperation.Copy;
         }
 
         private void DropBorder_DragEnter(object sender, Windows.UI.Xaml.DragEventArgs e)
         {
+            VisualStateManager.GoToState(this, "Inside", true);
+            bool hasText = e.DataView.Contains(StandardDataFormats.Text);
+            e.AcceptedOperation = hasText ? DataPackageOperation.Copy : DataPackageOperation.None;
 
-            //bool win = (_dragOperation != null) && e.DataView.Contains(StandardDataFormats.Text) && IsSymbolTargetBorder(sender);
-            //e.AcceptedOperation = win ? DataPackageOperation.Copy : DataPackageOperation.None;
-            //e.DragUIOverride.IsCaptionVisible = false;
+            e.DragUIOverride.Caption = "Drop here to assemble";
         }
 
-        private void DropBorder_Drop(object sender, Windows.UI.Xaml.DragEventArgs e)
+        private async void DropBorder_Drop(object sender, Windows.UI.Xaml.DragEventArgs e)
         {
+            VisualStateManager.GoToState(this, "Outside", true);
+            bool hasText = e.DataView.Contains(StandardDataFormats.Text);
+
             var b = sender as Border;
             var s = b.Name.Split('K');
             var n = "DropImageK" + s[s.Length - 1];
             Image dst = FindName(n) as Image;
-            Image src = FindName(e.DataView.GetTextAsync().ToString()) as Image;
-            dst.Source = src.Source;
+            Image src;
+
+            e.AcceptedOperation = hasText ? DataPackageOperation.Copy : DataPackageOperation.None;
+            if (hasText)
+            {
+                var tropa = await e.DataView.GetTextAsync();
+                src = FindName(tropa) as Image;
+                dst.Source = src.Source;
+            }
         }
 
         private void eraseTarget(object sender, RoutedEventArgs e)
@@ -458,6 +468,11 @@ namespace Trabajo1
             var n = "DropImageK" + s[s.Length - 1];
             var img = FindName(n) as Image;
             img.Source = null;
+        }
+
+        private void _tropas_DragStarting(UIElement sender, DragStartingEventArgs args)
+        {
+
         }
     }
 }
