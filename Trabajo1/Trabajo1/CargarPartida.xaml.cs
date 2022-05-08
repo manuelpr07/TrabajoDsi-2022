@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -66,6 +67,27 @@ namespace Trabajo1
             {
                 c.SetValue(BackgroundProperty, "DarkCyan");
                 c.SetValue(ForegroundProperty, "DarkGray");
+            }
+        }
+
+        private void TextBox_ManipulationCompleted(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var c = sender as TextBox;
+            string s = c.Text;
+            if (c.Text != "")
+            {
+                c.Background = new SolidColorBrush(Color.FromArgb(204, 0, 195, 255));
+                c.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+            }
+            else
+            {
+                c.Background = new SolidColorBrush(Color.FromArgb(255, 0, 139, 139));
+                c.Foreground = new SolidColorBrush(Color.FromArgb(255, 169, 169, 169));
             }
         }
     }

@@ -57,10 +57,10 @@
             FontFamily="Forte" FontSize="52" FontWeight="Bold" Foreground="Black" Padding="0,0,3,0" Margin="197,31,0,0">Cargar Partida</TextBlock>
             <StackPanel x:Name="partidas" BorderThickness="1" BorderBrush="#CC00008B" Grid.RowSpan="2"
                 HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,117,0,0">
-                <TextBox Text="MANUEL_01" Style="{StaticResource TextBoxStyle}" ManipulationCompleted="TextBox_ManipulationCompleted"></TextBox>
-                <TextBox Text="PARTIDA_PABLO" Style="{StaticResource TextBoxStyle}" ManipulationCompleted="TextBox_ManipulationCompleted"></TextBox>
-                <TextBox Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray" ManipulationCompleted="TextBox_ManipulationCompleted"/>
-                <TextBox Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray" ManipulationCompleted="TextBox_ManipulationCompleted"/>
+                <TextBox Text="MANUEL_01" Style="{StaticResource TextBoxStyle}" TextChanged="TextBox_TextChanged"></TextBox>
+                <TextBox Text="PARTIDA_PABLO" Style="{StaticResource TextBoxStyle}" TextChanged="TextBox_TextChanged"></TextBox>
+                <TextBox Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray" TextChanged="TextBox_TextChanged"/>
+                <TextBox Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray" TextChanged="TextBox_TextChanged"/>
             </StackPanel>
             <Button Click="ReturnMap"
                             Grid.Row="0" 
