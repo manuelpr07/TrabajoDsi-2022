@@ -63,22 +63,22 @@
                 FontFamily="Forte" FontSize="100" FontWeight="ExtraBold" Foreground="Black" Padding="0,20,0,0" Margin="60,40,30,0">Hour</TextBlock>
 
             <StackPanel Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Vertical">
-                <Button Content="Nueva Partida" Style="{StaticResource ButtonStyle}"
+                <Button x:Name="nuevaPartida" Content="Nueva Partida" Style="{StaticResource ButtonStyle}"
                     Click="Page1Button_OnClick" Width="420"/>
-                <Button Content="Cargar Partida" Style="{StaticResource ButtonStyle}"
+                <Button x:Name="cargarPartida" Content="Cargar Partida" Style="{StaticResource ButtonStyle}"
                     Click="Page2Button_OnClick" Width="420"/>
         
                 <StackPanel Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Content="Modos de Juego" Style="{StaticResource ButtonStyle}"
+                    <Button  x:Name="modosDeJuego" Content="Modos de Juego" Style="{StaticResource ButtonStyle}"
                         Click="Page1Button_OnClick"/>
-                    <Button Content="Configuración" Style="{StaticResource ButtonStyle}"
+                    <Button x:Name="config" Content="Configuración" Style="{StaticResource ButtonStyle}"
                         Click="SettingsButton"/>
                 </StackPanel>
             </StackPanel>
 
         </Grid>
         <Grid x:Name="settingGrid"
-              Visibility="Collapsed">
+              Visibility="Visible">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
@@ -109,10 +109,11 @@
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
                     <TextBlock x:Name="ConfigT"
-                               Text="CONFIGURACION"
+                               FontFamily="forte"
+                               Text="Configuración"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
-                               FontSize="40"
+                               FontSize="52"
                                Margin="10"/>
                     <Button Click="ReturnMap"
                             Grid.Row="0" 
@@ -128,30 +129,29 @@
                     <StackPanel Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="musicaT"
-                               Text="MUSICA"
+                               FontFamily="forte"
+                               Text="Música"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
                                Margin="30"/>
                             <Slider x:Name="music"  
-                                    Minimum="0" 
                                     Maximum="10"
-                                    IsDirectionReversed="true"
+                                    Minimum="0" 
                                     VerticalAlignment="Center"
                                     Width="400"
-                                    Margin="0,30,30,30"/>
+                                    Margin="0,30,30,30"
+                                    ValueChanged="Slider_ValueChanged"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="sfxT"
+                               FontFamily="forte"
                                Text="SFX"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                FontSize="40"
                                Margin="40,30,30,40"/>
                             <Slider x:Name="SFX"  
-                                    Minimum="0" 
-                                    Maximum="10"
-                                    IsDirectionReversed="true"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Right"
                                     Width="400"
@@ -160,7 +160,7 @@
                     </StackPanel>
                     <StackPanel Grid.Row="2"
                                 VerticalAlignment="Center">
-                        <ComboBox x:Name="LenguageBox" Header="Cambiar de Idioma"  Width="256" HorizontalAlignment="Center" Height="78" FontSize="20" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" >
+                        <ComboBox x:Name="LenguageBox" FontFamily="forte" Header="Cambiar de Idioma"  Width="256" HorizontalAlignment="Center" Height="78" FontSize="20" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" >
                             <ComboBoxItem x:Name="Español" FontStretch="Expanded">
                                 <TextBlock Text="Español" Foreground="Black"/>
                             </ComboBoxItem >

@@ -122,6 +122,9 @@
     <Compile Include="CargarPartida.xaml.cs">
       <DependentUpon>CargarPartida.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Castle.xaml.cs">
+      <DependentUpon>Castle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Combate.xaml.cs">
       <DependentUpon>Combate.xaml</DependentUpon>
     </Compile>
@@ -144,7 +147,10 @@
     <Content Include="Assets\angeles.png" />
     <Content Include="Assets\arqueros.png" />
     <Content Include="Assets\arrow.png" />
+    <Content Include="Assets\barracks.png" />
     <Content Include="Assets\caballeros.png" />
+    <Content Include="Assets\castle.png" />
+    <Content Include="Assets\castleBackground.jpg" />
     <Content Include="Assets\crystals.png" />
     <Content Include="Assets\dragon.png" />
     <Content Include="Assets\enemigo.png" />
@@ -160,8 +166,11 @@
     <Content Include="Assets\ingles.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\mana.png" />
+    <Content Include="Assets\mapIcon.png" />
+    <Content Include="Assets\musica.mp3" />
     <Content Include="Assets\oro.png" />
     <Content Include="Assets\piqueros.png" />
+    <Content Include="Assets\plus-icon.png" />
     <Content Include="Assets\reloj.png" />
     <Content Include="Assets\retirada.png" />
     <Content Include="Assets\shield-icon.png" />
@@ -177,6 +186,7 @@
     <Content Include="Assets\templarios.png" />
     <Content Include="Assets\tropas.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\windmill.png" />
     <Content Include="Assets\wood.png" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
@@ -186,6 +196,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="CargarPartida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Castle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

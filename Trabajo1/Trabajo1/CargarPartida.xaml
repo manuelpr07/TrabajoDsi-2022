@@ -47,11 +47,15 @@
         </Grid.RowDefinitions>
         <Image Grid.ColumnSpan="4" Grid.RowSpan="9" Stretch="Fill" Source="/Assets/fondo-dragon-blur.jpg" Margin="-348,0,0,-232" Visibility="Visible" RequestedTheme="Default" />
         <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="5" Background="#CC00FFFF" BorderBrush="#CC00008B" BorderThickness="1">
-            <TextBlock Grid.ColumnSpan="2" Grid.RowSpan="2"
-            Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top"
-            FontFamily="Forte" FontSize="52" FontWeight="Bold" Foreground="Black" Padding="0,0,3,0" Margin="0,30,30,0">Configuración</TextBlock>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="451*"/>
+                <RowDefinition Height="105*"/>
+            </Grid.RowDefinitions>
+            <TextBlock
+            x:Name="cargarT" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+            FontFamily="Forte" FontSize="52" FontWeight="Bold" Foreground="Black" Padding="0,0,3,0" Margin="197,31,0,0">Cargar Partida</TextBlock>
             <StackPanel BorderThickness="1" BorderBrush="#CC00008B"
-                HorizontalAlignment="Center" VerticalAlignment="Center">
+                HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,157,0,0">
                 <TextBox Text="MANUEL_01" Style="{StaticResource TextBoxStyle}"></TextBox>
                 <TextBox Text="PARTIDA_PABLO" Style="{StaticResource TextBoxStyle}"></TextBox>
                 <TextBox Text="VACIO" Style="{StaticResource TextBoxStyle}" Background="DarkCyan" Foreground="DarkGray"></TextBox>
@@ -63,12 +67,11 @@
                             Height="50"
                             BorderThickness="0"
                             Background="Transparent"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Top">
+                            VerticalAlignment="Top" Margin="1,1,0,0">
                 <SymbolIcon Symbol="Back" />
             </Button>
         </Grid>
 
-        
+
     </Grid>
 </Page>

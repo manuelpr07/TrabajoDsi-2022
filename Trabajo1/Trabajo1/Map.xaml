@@ -34,7 +34,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button Click="EnterCombat"
@@ -43,7 +44,7 @@
                 VerticalAlignment="Bottom"
                 Background="Transparent"
                 BorderThickness="0"
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="1"
                 Height="80"
                 Width="80"
@@ -54,7 +55,7 @@
                 VerticalAlignment="Bottom"
                 Background="Transparent"
                 BorderThickness="0"
-                Grid.Row="0"
+                Grid.Row="1"
                 Grid.Column="1"
                 Height="110"
                 Width="110"
@@ -65,7 +66,7 @@
                 VerticalAlignment="Bottom"
                 Background="Transparent"
                 BorderThickness="0"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 Height="110"
                 Width="110"
@@ -76,7 +77,7 @@
                 VerticalAlignment="Top"
                 Background="Transparent"
                 BorderThickness="0"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 Height="110"
                 Width="110"
@@ -146,6 +147,7 @@
             </Border>
 
             <StackPanel Grid.Column="2"
+                        Grid.Row="1"
                         VerticalAlignment="Bottom"
                         Margin="0,0,0,100">
 
@@ -157,8 +159,6 @@
                         Height="100"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
-                        Grid.Column="2"
-                        Grid.Row="0"
                         Margin="0,20,0,20"
                         CornerRadius="15,0,0,15" 
                         BorderBrush="Black" 
@@ -176,8 +176,6 @@
                         Height="100"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top"
-                        Grid.Column="2"
-                        Grid.Row="1"
                         Margin="0,20,0,20"
                         CornerRadius="15,0,0,15" 
                         BorderBrush="Black" 
@@ -192,7 +190,7 @@
             </StackPanel>
 
             <Button Click="Settings"
-                            TabIndex="3"
+                            TabIndex="4"
                             Background="Transparent"
                             BorderThickness="0"
                             Grid.Column="2"
@@ -205,7 +203,7 @@
             </Button>
             <Border BorderThickness="1"
                     Opacity=".85"   
-                    Width="171"
+                    Width="213"
                     Height="51"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
@@ -235,42 +233,41 @@
                                 HorizontalAlignment="Center">
                         <TextBlock x:Name="diaT"
                                    Text="Dia: "/>
-                        <TextBlock Text="23"
+                        <TextBlock Text="4"
                                    x:Name="dia"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 HorizontalAlignment="Center">
-                        <TextBlock x:Name="mesT"
-                                   Text="Mes: "/>
-                        <TextBlock Text="11"
-                                   x:Name="mes"/>
+                        <TextBlock x:Name="semanaT"
+                                   Text="Semana: "/>
+                        <TextBlock Text="2"
+                                   x:Name="semana"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal"
                                 Grid.Row="1"
                                 Grid.Column="2"
                                 HorizontalAlignment="Center">
-                        <TextBlock Text="Año: "
-                                   x:Name="añoT"/>
+                        <TextBlock Text="Mes: "
+                                   x:Name="mesT"/>
                         <TextBlock Text="1"
-                                   x:Name="año"/>
+                                   x:Name="mes"/>
                     </StackPanel>
                 </Grid>
-                <!--<StackPanel VerticalAlignment="Center">
-                    <TextBlock Text="CALENDARIO"
-                               HorizontalAlignment="Center"/>
-                    <StackPanel  Orientation="Horizontal" 
-                                 HorizontalAlignment="Center">
-                        
-                        <TextBlock Text="Mes: "/>
-                        <TextBlock Text="11"/>
-                        <TextBlock Text="Año: "/>
-                        <TextBlock Text="1"/>
-                    </StackPanel>
-                </StackPanel>-->
             </Border>
-
+            <Button BorderThickness="0"
+                    TabIndex="3"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    Background="Transparent"
+                    Click="MoveToCastle"
+                    Margin="469,226,0,0" Grid.RowSpan="2">
+                <Image  x:Name="castillo"         
+                     Source="Assets/castle.png"
+                     Stretch="Uniform" Height="129" Width="118"
+                            />
+            </Button>
         </Grid>
         <Grid x:Name="settingGrid"
               Visibility="Collapsed">
@@ -331,10 +328,10 @@
                             <Slider x:Name="music"  
                                     Minimum="0" 
                                     Maximum="10"
-                                    IsDirectionReversed="true"
                                     VerticalAlignment="Center"
                                     Width="400"
-                                    Margin="0,30,30,30"/>
+                                    Margin="0,30,30,30"
+                                    ValueChanged="Slider_ValueChanged"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock x:Name="sfxT"
@@ -346,7 +343,6 @@
                             <Slider x:Name="SFX"  
                                     Minimum="0" 
                                     Maximum="10"
-                                    IsDirectionReversed="true"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Right"
                                     Width="400"
@@ -514,37 +510,44 @@
                                        Grid.Row="7"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="53"
+                            <TextBlock x:Name="gNumber"
+                                       Text="53"
                                        Grid.Column="2"
                                        Grid.Row="1"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="16"
+                            <TextBlock x:Name="arqNumber"
+                                       Text="16"
                                        Grid.Column="2"
                                        Grid.Row="2"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="20"
+                            <TextBlock x:Name="pNumber"
+                                       Text="20"
                                        Grid.Column="2"
                                        Grid.Row="3"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="8"
+                            <TextBlock x:Name="cNumber"
+                                       Text="8"
                                        Grid.Column="2"
                                        Grid.Row="4"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="5"
+                            <TextBlock x:Name="tNumber"
+                                       Text="5"
                                        Grid.Column="2"
                                        Grid.Row="5"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="2"
+                            <TextBlock x:Name="dNumber"
+                                       Text="2"
                                        Grid.Column="2"
                                        Grid.Row="6"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"/>
-                            <TextBlock Text="0"
+                            <TextBlock x:Name="aNumber"
+                                       Text="0"
                                        Grid.Column="2"
                                        Grid.Row="7"
                                        HorizontalAlignment="Center"
@@ -797,30 +800,51 @@
                                        Stretch="Uniform"
                                        Height="30"
                                        Grid.Row="4"/>
-                            <TextBlock x:Name="oProdRecursos"
-                                       Text="+450/DIA"
-                                       Grid.Column="3"
-                                       Grid.Row="1"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-                            <TextBlock x:Name="mProdRecursos"
-                                       Text="+14/SEMANA"
-                                       Grid.Column="3"
-                                       Grid.Row="2"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-                            <TextBlock x:Name="pProdRecursos"
-                                       Text="+16/SEMANA"
-                                       Grid.Column="3"
-                                       Grid.Row="3"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
-                            <TextBlock x:Name="miProdRecursos"
-                                       Text="+5/SEMANA"
-                                       Grid.Column="3"
-                                       Grid.Row="4"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="oroPN"
+                                       Text="150" />
+                                <TextBlock x:Name="oProdRecursos"
+                                       Text="/DIA"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="madPN"
+                                       Text="7" />
+                                <TextBlock x:Name="mProdRecursos"
+                                       Text="/SEMANA"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="3"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="piedPN"
+                                       Text="7" />
+                                <TextBlock x:Name="pProdRecursos"
+                                       Text="/SEMANA"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="minPN"
+                                       Text="2" />
+                                <TextBlock x:Name="miProdRecursos"
+                                       Text="/SEMANA"/>
+                            </StackPanel>
+
                         </Grid>
                     </Border>
                     <TextBlock x:Name="IntRecursos"

@@ -22,14 +22,35 @@ namespace Trabajo1
     /// </summary>
     public sealed partial class CargarPartida : Page
     {
+        private string Idiomas;
         public CargarPartida()
         {
             this.InitializeComponent();
+            Idiomas = "spanish";
         }
         private void ReturnMap(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            Frame.Navigate(typeof(MainPage), Idiomas);
         }
-        
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Idiomas = e.Parameter as string;
+            ChangeLenguages(Idiomas);
+        }
+        private void ChangeLenguages(string l)
+        {
+            if (l == "spanish")
+            {
+                cargarT.Text = "Cargar Partida";
+            }
+            else if (l == "english")
+            {
+                cargarT.Text = "Load Game";
+            }
+            else if (l == "french")
+            {
+                cargarT.Text = "Chargement du jeu";
+            }
+        }
     }
 }

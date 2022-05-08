@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Gaming.Input;
+using Windows.Media.Playback;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -22,20 +23,20 @@ namespace Trabajo1
     /// <summary>
     /// Una página vacía que se puede usar de forma independiente o a la que se puede navegar dentro de un objeto Frame.
     /// </summary>
+    class NavigationInfo
+    {
+        public string idioma;
+        public int[] troops = new int[7];
+        public int[] resources = new int[4];
+        public int[] resourcesProd = new int[4];
+    }
     public sealed partial class Map : Page
     {
         private string Idiomas;
-
+        static double volumeAux = 0;
+        public static MediaPlayer player;
         CoreCursor CursorArrow = null;
 
-        private readonly object myLock = new object();
-        private List<Gamepad> myGamepads = new List<Gamepad>();
-        private Gamepad mainGamepad;
-
-        private GamepadReading reading, prereading;
-        private GamepadVibration vibration;
-
-        DispatcherTimer GamePadTimer;
 
         public Map()
         {
@@ -44,61 +45,10 @@ namespace Trabajo1
             Window.Current.CoreWindow.PointerCursor = CursorArrow;
             mapGrid.Visibility = Visibility.Visible;
             Idiomas = "spanish";
+            LenguageBox.Text = "Español";
             Español.IsSelected = true;
-            Gamepad.GamepadAdded += (object sender, Gamepad e) =>
-            {
-                // comprueba si el gamepad está en la lista de myGamepads, si no lo añade
-                lock (myLock)
-                {
-                    bool gamepadInList = myGamepads.Contains(e);
-
-                    if (!gamepadInList)
-                    {
-                        myGamepads.Add(e);
-                        mainGamepad = myGamepads[0];
-                    }
-                }
-            };
-            Gamepad.GamepadRemoved += (object sender, Gamepad e) =>
-            {
-                lock (myLock)
-                {
-                    int indexRemoved = myGamepads.IndexOf(e);
-
-                    if (indexRemoved > -1)
-                    {
-                        if (mainGamepad == myGamepads[indexRemoved])
-                        {
-                            mainGamepad = null;
-                        }
-
-                        myGamepads.RemoveAt(indexRemoved);
-                    }
-                }
-            };
-        }
-        void LeeMando()
-        {
-            if (mainGamepad != null)
-            {
-                prereading = reading;
-                reading = mainGamepad.GetCurrentReading();
-            }
-
-        }
-        void GamePadTimer_Tick(object sender, object e)
-        { //Función de respuesta al Timer cada 0.01s
-            if (mainGamepad != null)
-            {
-                LeeMando(); //Lee GamePAd
-            }
-        }
-        public void GamePadTimerSetup()
-        {
-            GamePadTimer = new DispatcherTimer();
-            GamePadTimer.Tick += GamePadTimer_Tick;
-            GamePadTimer.Interval = new TimeSpan(100000);
-            GamePadTimer.Start();
+            ElementSoundPlayer.Volume = 1;
+            player = App.getPlayer();
         }
 
         private void EnterResources(object sender, RoutedEventArgs e)
@@ -113,10 +63,21 @@ namespace Trabajo1
         }
         private void EnterCombat(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(Combate), Idiomas);
+            this.Frame.Navigate(typeof(Combate), SetNavigationInfo());
         }
         protected override void OnNavigatedTo(NavigationEventArgs e) 
-        {          
+        {
+            NavigationInfo a = e.Parameter as NavigationInfo;
+
+            if (a == null)
+            {
+                a = new NavigationInfo();
+                a.idioma = "spanish";
+            }
+            else
+            {
+                GetNavigationInfo(a);
+            }
             Idiomas = e.Parameter as string;
             if(Idiomas == "spanish")
             {
@@ -131,6 +92,10 @@ namespace Trabajo1
                 Frances.IsSelected = true;
             }
             ChangeLenguages(Idiomas);
+            if (player.Volume != 0)
+            {
+                music.Value = player.Volume*10;
+            }
         }
         private void Settings(object sender, RoutedEventArgs e)
         {
@@ -147,7 +112,11 @@ namespace Trabajo1
         }
         private void ReturnMenu(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            Frame.Navigate(typeof(MainPage), Idiomas);
+        }
+        private void MoveToCastle(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Castle), SetNavigationInfo());
         }
         private void StoreButton1_onClick(object sender, RoutedEventArgs e)
         {
@@ -183,20 +152,36 @@ namespace Trabajo1
         {
             int newDay = int.Parse(dia.Text) + 1;
             int newMonth = int.Parse(mes.Text);
-            int newYear = int.Parse(año.Text);
-            if (newDay > 30)
+            int newWeek = int.Parse(semana.Text);
+            if (newDay > 7)
             {
                 newDay = 1;
-                newMonth = int.Parse(mes.Text) + 1;
-                if (newMonth > 12)
+                newWeek = int.Parse(semana.Text) + 1;
+                if (newWeek > 4)
                 {
-                    newMonth = 1;
-                    newYear = int.Parse(mes.Text) + 1;
+                    newWeek = 1;
+                    newMonth = int.Parse(mes.Text) + 1;        
                 }
             }
+
+            int newOro = int.Parse(oro.Text) + int.Parse(oroPN.Text);
+            oro.Text = newOro.ToString();
+
+            if( int.Parse(dia.Text)%7 == 0)
+            {
+                int newMad = int.Parse(madera.Text) + int.Parse(madPN.Text);
+                madera.Text = newMad.ToString();
+
+                int newPied = int.Parse(piedra.Text) + int.Parse(piedPN.Text);
+                piedra.Text = newPied.ToString();
+
+                int newMin = int.Parse(mineral.Text) + int.Parse(minPN.Text);
+                mineral.Text = newMin.ToString();
+            }
+
             dia.Text = Convert.ToString(newDay);
+            semana.Text = Convert.ToString(newWeek);
             mes.Text = Convert.ToString(newMonth);
-            año.Text = Convert.ToString(newYear);
         }
         private void ComboBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
@@ -223,7 +208,7 @@ namespace Trabajo1
 
                 //MAP GRID
                 calendario.Text = "CALENDARIO";
-                añoT.Text = "Año:";
+                semanaT.Text = "Semana:";
                 mesT.Text = "Mes:";
                 diaT.Text = "Dia:";
 
@@ -270,7 +255,7 @@ namespace Trabajo1
 
                 //MAP GRID
                 calendario.Text = "CALENDAR";
-                añoT.Text = "Year:";
+                semanaT.Text = "Week:";
                 mesT.Text = "Month:";
                 diaT.Text = "Day:";
 
@@ -316,7 +301,7 @@ namespace Trabajo1
             {
                 //MAP GRID
                 calendario.Text = "Calendrier";
-                añoT.Text = "An:";
+                semanaT.Text = "Semaine:";
                 mesT.Text = "Mois:";
                 diaT.Text = "Jour:";
 
@@ -359,6 +344,81 @@ namespace Trabajo1
                 IntRecursos.Text = "ÉCHANGE QUOTIDIEN";
             }
         }
+        private NavigationInfo SetNavigationInfo()
+        {
+            NavigationInfo a = new NavigationInfo();
+            //recursos
+            a.resources[0] = int.Parse(oro.Text);
+            a.resources[1] = int.Parse(madera.Text);
+            a.resources[2] = int.Parse(piedra.Text);
+            a.resources[3] = int.Parse(mineral.Text);
 
+            //prod recursos
+            a.resourcesProd[0] = int.Parse(oroPN.Text);
+            a.resourcesProd[1] = int.Parse(madPN.Text);
+            a.resourcesProd[2] = int.Parse(piedPN.Text);
+            a.resourcesProd[3] = int.Parse(minPN.Text);
+
+            //tropas
+            a.troops[0] = int.Parse(gNumber.Text);
+            a.troops[1] = int.Parse(arqNumber.Text);
+            a.troops[2] = int.Parse(pNumber.Text);
+            a.troops[3] = int.Parse(cNumber.Text);
+            a.troops[4] = int.Parse(tNumber.Text);
+            a.troops[5] = int.Parse(dNumber.Text);
+            a.troops[6] = int.Parse(aNumber.Text);
+
+            a.idioma = Idiomas;
+
+            return a;
+        }
+        private void GetNavigationInfo(NavigationInfo a)
+        {
+            //recursos
+            oro.Text = a.resources[0].ToString();
+            madera.Text = a.resources[1].ToString();
+            piedra.Text = a.resources[2].ToString();
+            mineral.Text = a.resources[3].ToString();
+
+            //prod recursos
+            oroPN.Text = a.resourcesProd[0].ToString();
+            madPN.Text = a.resourcesProd[1].ToString();
+            piedPN.Text = a.resourcesProd[2].ToString();
+            minPN.Text = a.resourcesProd[3].ToString();
+
+            //tropas
+            gNumber.Text = a.troops[0].ToString();
+            arqNumber.Text = a.troops[1].ToString();
+            pNumber.Text = a.troops[2].ToString();
+            cNumber.Text = a.troops[3].ToString();
+            tNumber.Text = a.troops[4].ToString();
+            dNumber.Text = a.troops[5].ToString();
+            aNumber.Text = a.troops[6].ToString();
+
+            if(!string.IsNullOrWhiteSpace(a.idioma))
+            {
+                Idiomas = a.idioma;
+            }
+        }
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            if (e.NewValue == 0)
+            {
+                player.Volume = 0;
+            }
+            else if (e.NewValue == 100) player.Volume = 1;
+            else
+            {
+                if (e.NewValue > e.OldValue) //Subir volumen 
+                {
+
+                    if (player.Volume + 0.01 <= 1) player.Volume += (e.NewValue - e.OldValue) / 10;
+                }
+                else if (e.NewValue < e.OldValue) //Bajar Volumen 
+                {
+                    if (player.Volume - 0.01 >= 0) player.Volume += (e.NewValue - e.OldValue) / 10; ;
+                }
+            }
+        }
     }
 }

@@ -1,0 +1,1648 @@
+﻿<Page
+    x:Class="Trabajo1.Castle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Trabajo1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Image x:Name="MiFondo"         
+                Source="Assets/castleBackground.jpg" 
+                Stretch="Fill" Margin="-98,0,-128,-42"/>
+        <Grid x:Name="mainGrid"
+               Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Click="Settings"
+                            TabIndex="4"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Grid.Column="2"
+                            Grid.Row="0" 
+                            Width="100"
+                            Height="100"
+                            VerticalAlignment="Top"
+                            Margin="190,10,0,0">
+                <SymbolIcon Symbol="Setting" />
+            </Button>
+            <Border BorderThickness="1"
+                    Opacity=".85"   
+                    Width="300"
+                    Height="70"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    CornerRadius="15" 
+                    BorderBrush="Black" 
+                    Background="#fef8a0"
+                    Margin="0,40,0,0">
+                <TextBlock x:Name="CastleT"
+                           Text="TU CASTILLO"
+                           FontSize="36"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+            </Border>
+            <Button Click="EnterBarracks"
+                    BorderThickness="5"
+                    Height="131"
+                    Background="Transparent"
+                    Width="129"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="30">
+                <Image  x:Name="baracs"         
+                            Source="Assets/barracks.png"
+                            Stretch="Uniform" Height="157" Width="95"
+                            />
+            </Button>
+            <Button Click="EnterWindmill"
+                    BorderThickness="5"
+                    Height="131"
+                    Background="Transparent"
+                    Width="129"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    VerticalAlignment="Bottom"
+                    Margin="286,0,0,0">
+                <Image  x:Name="windmill"         
+                            Source="Assets/windmill.png"
+                            Stretch="Uniform" Height="157" Width="95"
+                            />
+            </Button>
+
+            <StackPanel Grid.Column="2"
+                        Grid.Row="1"
+                        VerticalAlignment="Bottom"
+                        Margin="0,0,0,100">
+
+                <Button x:Name ="RecursosBorder"
+                        TabIndex="1"
+                        BorderThickness="1"
+                        Width="120"
+                        Height="100"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="0,20,0,20"
+                        CornerRadius="15,0,0,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0"
+                        Click="EnterResources">
+                    <Image  x:Name="recursos"         
+                            Source="Assets/crystals.png" 
+                            Stretch="Uniform" />
+                </Button>
+                <Button TabIndex="2"
+                        x:Name ="TropasBorder"
+                        BorderThickness="1"   
+                        Width="120"
+                        Height="100"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Margin="0,20,0,20"
+                        CornerRadius="15,0,0,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0"
+                        Click="EnterTroops">
+
+                    <Image  x:Name="tropas"         
+                        Source="Assets/tropas.png"
+                        Stretch="Uniform"  
+                        />
+                </Button>
+            </StackPanel>
+            <Border x:Name ="HeroeBorder"
+                    BorderThickness="1" 
+                    Width="240"
+                    Opacity=".85"
+                    Height="160"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    CornerRadius="15" 
+                    BorderBrush="Black" 
+                    Background="#fef8a0">
+                <StackPanel x:Name="HeroLayout"
+                            Orientation="Horizontal" Margin="0">
+                    <Image  x:Name="heroe"         
+                            Source="Assets/Heroe.png"
+                            Stretch="Uniform" Width="124"  
+                            />
+                    <Button BorderThickness="0"
+                            TabIndex="0"
+                            Background="Transparent"
+                            Click="ReturnMap">
+                        <Image  x:Name="tiempo"         
+                            Source="Assets/mapIcon.png"
+                            Stretch="Uniform" Height="157" Width="95"
+                            />
+                    </Button>
+                </StackPanel>
+
+            </Border>
+        </Grid>
+        <Grid x:Name="settingGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name ="SettingsBorder"
+                        BorderThickness="1"
+                        Opacity=".85"   
+                        Width="800"
+                        Height="600"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="ConfigT"
+                               Text="CONFIGURACION"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="10"/>
+                    <Button Click="ReturnCastle"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <SymbolIcon Symbol="Back" />
+                    </Button>
+
+                    <StackPanel Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="musicaT"
+                               Text="MUSICA"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="30"/>
+                            <Slider x:Name="music"  
+                                    Minimum="0" 
+                                    Maximum="10"
+                                    VerticalAlignment="Center"
+                                    Width="400"
+                                    Margin="0,30,30,30"
+                                    ValueChanged="Slider_ValueChanged"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock x:Name="sfxT"
+                               Text="SFX"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="40,30,30,40"/>
+                            <Slider x:Name="SFX"  
+                                    Minimum="0" 
+                                    Maximum="10"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right"
+                                    Width="400"
+                                    Margin="70,30,30,30"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"
+                                VerticalAlignment="Center">
+                        <ComboBox x:Name="LenguageBox" Header="Cambiar de Idioma"  Width="256" HorizontalAlignment="Center" Height="78" FontSize="20" SelectionChanged="ComboBox_SelectionChanged" VerticalAlignment="Center" >
+                            <ComboBoxItem x:Name="Español" FontStretch="Expanded">
+                                <TextBlock Text="Español" Foreground="Black"/>
+                            </ComboBoxItem >
+                            <ComboBoxItem x:Name="Ingles" FontStretch="Expanded">
+                                <TextBlock x:Name="Inglés" Text="Inglés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                            <ComboBoxItem  x:Name="Frances" FontStretch="Expanded">
+                                <TextBlock x:Name="Francés" Text="Francés"  Foreground="Black"/>
+                            </ComboBoxItem>
+                        </ComboBox>
+                        <Button x:Name="GuartarT"
+                                Content="GUARDAR Y SALIR"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Bottom"
+                                Margin="20"
+                                Click="ReturnMenu"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid x:Name="troopsGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name ="troopsBorder"
+                        BorderThickness="1"
+                        Opacity=".85"   
+                        Width="800"
+                        Height="600"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Button Click="ReturnCastle"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <SymbolIcon Symbol="Back" />
+                    </Button>
+                    <TextBlock x:Name ="MTropas"
+                               Text="MENÚ DE TROPAS"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="10"/>
+                    <TextBlock x:Name ="NTropas"
+                               Text="NÚMERO DE TROPAS"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="26"
+                               Grid.Row="1"/>
+                    <Border BorderThickness="1"
+                        Width="512"
+                        Height="288"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15"
+                        Margin="0,43,0,0"
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width ="*"/>
+                                <ColumnDefinition Width ="2*"/>
+                                <ColumnDefinition Width ="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name ="IcTropas"
+                                       Text="ICONO"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"/>
+                            <TextBlock x:Name ="NomTropas"
+                                       Text="NOMBRE"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"/>
+                            <TextBlock  x:Name ="CanTropas"
+                                       Text="CANTIDAD"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"/>
+                            <TextBlock  x:Name ="GuerTropas"
+                                       Text="GUERREROS"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock  x:Name ="ArqTropas"
+                                       Text="ARQUEROS"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock  x:Name ="PiqTropas"
+                                       Text="PIQUEROS"
+                                       Grid.Column="1"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock  x:Name ="CabTropas"
+                                       Text="CABALLEROS"
+                                       Grid.Column="1"
+                                       Grid.Row="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock  x:Name ="TempTropas"
+                                       Text="TEMPLARIOS"
+                                       Grid.Column="1"
+                                       Grid.Row="5"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock  x:Name ="DragTropas"
+                                       Text="DRAGONES"
+                                       Grid.Column="1"
+                                       Grid.Row="6"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock  x:Name ="AngTropas"
+                                       Text="ANGELES"
+                                       Grid.Column="1"
+                                       Grid.Row="7"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="gNumber"
+                                       Text="53"
+                                       Grid.Column="2"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="arqNumber"
+                                       Text="16"
+                                       Grid.Column="2"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="pNumber"
+                                       Text="20"
+                                       Grid.Column="2"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="cNumber"
+                                       Text="8"
+                                       Grid.Column="2"
+                                       Grid.Row="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="tNumber"
+                                       Text="5"
+                                       Grid.Column="2"
+                                       Grid.Row="5"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="dNumber"
+                                       Text="2"
+                                       Grid.Column="2"
+                                       Grid.Row="6"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="aNumber"
+                                       Text="0"
+                                       Grid.Column="2"
+                                       Grid.Row="7"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <Image     Source="Assets/tropas.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"/>
+                            <Image     Source="Assets/arqueros.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="2"/>
+                            <Image     Source="Assets/piqueros.png"          
+                                       Stretch="Uniform"
+                                       Height="20"
+                                       Grid.Row="3"/>
+                            <Image     Source="Assets/caballeros.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="4"/>
+                            <Image     Source="Assets/templarios.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="5"/>
+                            <Image     Source="Assets/dragon.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="6"/>
+                            <Image     Source="Assets/angeles.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="7"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock  x:Name ="FormTropas"
+                               Text="FORMACION DE TU EJÉRCITO"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="26"
+                               Grid.Row="2"/>
+                    <Border BorderThickness="1"
+                        Width="700"
+                        Height="100"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Grid.Row="2"
+                        CornerRadius="15,15,15,15"
+                        Margin="0,43,0,0"
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Image     Source="Assets/tropas.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="2"/>
+                            <Image     Source="Assets/tropas.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="3"/>
+                            <Image     Source="Assets/tropas.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"
+                                       Grid.Column="4"/>
+                            <Image     Source="Assets/arqueros.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="0"
+                                       Grid.Column="4"/>
+                            <Image     Source="Assets/arqueros.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="0"
+                                       Grid.Column="5"/>
+                            <Image     Source="Assets/dragon.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"
+                                       Grid.RowSpan="2"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid x:Name="resourcesGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name ="resourcesBorder"
+                        BorderThickness="1"
+                        Opacity=".85"   
+                        Width="800"
+                        Height="600"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Button Click="ReturnCastle"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <SymbolIcon Symbol="Back" />
+                    </Button>
+                    <TextBlock x:Name="MRecursos"
+                               Text="MENU DE RECURSOS"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="10"/>
+                    <TextBlock x:Name="NRecursos"
+                               Text="NÚMERO DE RECURSOS"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="26"
+                               Grid.Row="1"/>
+                    <Border BorderThickness="1"
+                        Width="512"
+                        Height="220"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15"
+                        Margin="0,43,0,0"
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width ="*"/>
+                                <ColumnDefinition Width ="2*"/>
+                                <ColumnDefinition Width ="*"/>
+                                <ColumnDefinition Width ="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="IcRecursos"
+                                       Text="ICONO"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"/>
+                            <TextBlock x:Name="NomRecursos"
+                                       Text="NOMBRE"
+                                       Grid.Column="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"/>
+                            <TextBlock x:Name="CantRecursos"
+                                       Text="CANTIDAD"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"/>
+                            <TextBlock x:Name="ProdRecursos"
+                                       Text="PRODUCCIÓN"
+                                       Grid.Column="3"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontWeight="Bold"/>
+                            <TextBlock x:Name="OroRecursos"
+                                       Text="MONEDAS"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="MadRecursos"
+                                       Text="MADERA"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="PiedRecursos"
+                                       Text="PIEDRA"
+                                       Grid.Column="1"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="MinRecursos"
+                                       Text="MINERALES"
+                                       Grid.Column="1"
+                                       Grid.Row="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="oro"
+                                       Text="2753"
+                                       Grid.Column="2"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="madera"
+                                       Text="28"
+                                       Grid.Column="2"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="piedra"
+                                       Text="34"
+                                       Grid.Column="2"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <TextBlock x:Name="mineral"
+                                       Text="13"
+                                       Grid.Column="2"
+                                       Grid.Row="4"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            <Image     Source="Assets/oro.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="1"/>
+                            <Image     Source="Assets/wood.png"          
+                                       Stretch="Uniform"
+                                       Grid.Row="2"/>
+                            <Image     Source="Assets/stone.png"          
+                                       Stretch="Uniform"
+                                       Height="20"
+                                       Grid.Row="3"/>
+                            <Image     Source="Assets/crystals.png"          
+                                       Stretch="Uniform"
+                                       Height="30"
+                                       Grid.Row="4"/>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="oroPN"
+                                       Text="150" />
+                                <TextBlock x:Name="oProdRecursos"
+                                       Text="/DIA"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="2"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="madPN"
+                                       Text="7" />
+                                <TextBlock x:Name="mProdRecursos"
+                                       Text="/SEMANA"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="3"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="piedPN"
+                                       Text="7" />
+                                <TextBlock x:Name="pProdRecursos"
+                                       Text="/SEMANA"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="3"
+                                        Grid.Row="4"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center">
+                                <TextBlock Text="+"/>
+                                <TextBlock x:Name="minPN"
+                                       Text="2" />
+                                <TextBlock x:Name="miProdRecursos"
+                                       Text="/SEMANA"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <TextBlock x:Name="IntRecursos"
+                               Text="INTERCAMBIO DIARIO"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="26"
+                               Grid.Row="2"/>
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="StoreButton1"
+                            Click="StoreButton1_onClick"       
+                            IsEnabled="True"
+                            BorderThickness="1"
+                            Width="80"
+                            Height="50"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Row="0"
+                            CornerRadius="8"
+                            Margin="0,43,0,0"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Left">
+                                    <TextBlock     FontSize="15"
+                                                   Text="100"
+                                                   Margin="5"
+                                                   VerticalAlignment="Center"/>
+                                    <Image     Source="Assets/oro.png"          
+                                           Height="30"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Image     Source="Assets/arrow.png"          
+                                       Height="30"
+                                       VerticalAlignment="Bottom"
+                                       Margin="10,10,10,12"/>
+                            <Border BorderThickness="1"
+                            Width="80"
+                            Height="50"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Row="0"
+                            CornerRadius="8"
+                            Margin="0,43,0,0"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="1"
+                                               Margin="10"
+                                               VerticalAlignment="Center"/>
+                                    <Image     Source="Assets/wood.png"          
+                                       Height="34"
+                                       VerticalAlignment="Center" Width="37"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="StoreButton2"
+                            Click="StoreButton2_onClick"
+                            IsEnabled="True"
+                            BorderThickness="1"
+                            Width="80"
+                            Height="50"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Row="0"
+                            CornerRadius="8"
+                            Margin="0,43,0,0"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="15"
+                                               Text="1"
+                                               Margin="5"
+                                               VerticalAlignment="Center"/>
+                                    <Image     Source="Assets/crystals.png"          
+                                       Height="30"
+                                       VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Image     Source="Assets/arrow.png"          
+                                       Height="30"
+                                       VerticalAlignment="Bottom"
+                                       Margin="10,10,10,12"/>
+                            <Border BorderThickness="1"
+                            Width="80"
+                            Height="50"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Grid.Row="0"
+                            CornerRadius="8"
+                            Margin="0,43,0,0"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="4"
+                                               Margin="10"
+                                               VerticalAlignment="Center"/>
+                                    <Image     Source="Assets/stone.png"          
+                                       Height="30"
+                                       VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid x:Name="barracksGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="1"
+                        Opacity=".85"   
+                        Width="800"
+                        Height="600"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <Button Click="ReturnCastle"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <SymbolIcon Symbol="Back" />
+                    </Button>
+                    <TextBlock x:Name="barracksText"
+                               Text="BARRACONES"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="10"/>
+                    <TextBlock x:Name="reclutText"
+                               Text="RECLUTAMIENTO DE TROPAS"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               FontSize="26"
+                               Margin="15"
+                               Grid.Row="0"/>
+                    <StackPanel Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Border BorderThickness="1"
+                                Width="285"
+                                Height="50"
+                                CornerRadius="15,15,15,15"
+                                Margin="0,20,30,0"
+                                BorderBrush="Black" 
+                                Background="#fef8a0">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/tropas.png"          
+                                           Height="45"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="soldadoN"
+                                               Text="Guerreros"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="2"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                        <TextBlock x:Name="gCosteT"
+                                               Text="Coste: "
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock x:Name="gCoste"
+                                               Text="100"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/oro.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button x:Name="guerButton"
+                                        BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="3"
+                                        Click="ReclGuerreros">
+                                        <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="32" Height="44"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                            <Border BorderThickness="1"
+                                Width="285"
+                                Height="50"
+                                CornerRadius="15,15,15,15"
+                                Margin="0,20,0,0"
+                                BorderBrush="Black" 
+                                Background="#fef8a0">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/arqueros.png"          
+                                           Height="50"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="arqueroN"
+                                               Text="Arqueros"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="2"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                        <TextBlock x:Name="arqCosteT"
+                                               Text="Coste: "
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock x:Name="arqCoste"
+                                               Text="150"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/oro.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button x:Name="arqButton"
+                                        BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="3"
+                                        Click="ReclArqueros">
+                                        <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="32" Height="44"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Border BorderThickness="1"
+                                Width="285"
+                                Height="60"
+                                CornerRadius="15,15,15,15"
+                                Margin="0,20,30,0"
+                                BorderBrush="Black" 
+                                Background="#fef8a0">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/piqueros.png"          
+                                           Width="50"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="piqueroN"
+                                               Text="Guerreros"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="2"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                        <TextBlock x:Name="pCosteT"
+                                               Text="Coste: "
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock x:Name="pCoste1"
+                                               Text="350"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/oro.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Center">
+                                            <TextBlock x:Name="pCoste2"
+                                               Text="8"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/stone.png"          
+                                               Height="15"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button x:Name="piqButton"
+                                        BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="3"
+                                        Click="ReclPiqueros">
+                                        <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="32" Height="44"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                            <Border BorderThickness="1"
+                                Width="285"
+                                Height="60"
+                                CornerRadius="15,15,15,15"
+                                Margin="0,20,0,0"
+                                BorderBrush="Black" 
+                                Background="#fef8a0">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/caballeros.png"          
+                                           Height="40"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="caballeroN"
+                                               Text="Caballeros"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="2"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                        <TextBlock x:Name="cCosteT"
+                                               Text="Coste: "
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock x:Name="cCoste1"
+                                               Text="425"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/oro.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Center">
+                                            <TextBlock x:Name="cCoste2"
+                                               Text="10"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/wood.png"          
+                                               Height="25"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button x:Name="cabButton"
+                                        BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="3"
+                                        Click="ReclCaballeros">
+                                        <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="32" Height="44"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Border BorderThickness="1"
+                                Width="285"
+                                Height="80"
+                                CornerRadius="15,15,15,15"
+                                Margin="0,20,30,0"
+                                BorderBrush="Black" 
+                                Background="#fef8a0">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/templarios.png"          
+                                           Height="40"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="templarioN"
+                                               Text="Templarios"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="2"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                        <TextBlock x:Name="tCosteT"
+                                               Text="Coste: "
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock x:Name="tCoste1"
+                                               Text="750"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/oro.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock x:Name="tCoste2"
+                                               Text="12"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/stone.png"          
+                                               Height="15"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Center">
+                                            <TextBlock x:Name="tCoste3"
+                                               Text="10"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/wood.png"          
+                                               Height="25"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button x:Name="tempButton"
+                                        BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="3"
+                                        Click="ReclTemplarios">
+                                        <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="32" Height="44"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                            <Border BorderThickness="1"
+                                Width="285"
+                                Height="80"
+                                CornerRadius="15,15,15,15"
+                                Margin="0,20,0,0"
+                                BorderBrush="Black" 
+                                Background="#fef8a0">
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="Assets/dragon.png"          
+                                           Height="50"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="dragonesN"
+                                               Text="Dragones"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <StackPanel Grid.Column="2"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                        <TextBlock x:Name="dCosteT"
+                                               Text="Coste: "
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Center">
+                                            <TextBlock x:Name="dCoste1"
+                                               Text="1150"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/oro.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Center">
+                                            <TextBlock x:Name="dCoste2"
+                                               Text="15"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/wood.png"          
+                                               Height="25"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal"
+                                                    HorizontalAlignment="Center">
+                                            <TextBlock x:Name="dCoste3"
+                                               Text="15"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                            <Image Source="Assets/stone.png"          
+                                               Height="15"
+                                               VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Button x:Name="dragButton"
+                                        BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="3"
+                                        Click="ReclDragones">
+                                        <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="32" Height="44"/>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                        <Border BorderThickness="1"
+                                Width="283"
+                                Height="110"
+                                CornerRadius="15,15,15,15"
+                                Margin="0,20,20,0"
+                                BorderBrush="Black" 
+                                Background="#fef8a0">
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Assets/angeles.png"          
+                                           Height="92"
+                                           VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,67,0"/>
+                                <TextBlock x:Name="angelesN"
+                                               Text="Ángeles"
+                                               Grid.Column="1"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                <StackPanel Grid.Column="2"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <TextBlock x:Name="aCosteT"
+                                               Text="Coste: "
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock x:Name="aCoste1"
+                                               Text="1645"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <Image Source="Assets/oro.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center">
+                                        <TextBlock x:Name="aCoste2"
+                                               Text="20"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <Image Source="Assets/wood.png"          
+                                               Height="25"
+                                               VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center">
+                                        <TextBlock x:Name="aCoste3"
+                                               Text="20"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <Image Source="Assets/stone.png"          
+                                               Height="15"
+                                               VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Center">
+                                        <TextBlock x:Name="aCoste4"
+                                               Text="5"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"/>
+                                        <Image Source="Assets/crystals.png"          
+                                               Height="20"
+                                               VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <Button x:Name="angButton"
+                                        BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="3"
+                                        Click="ReclAngeles">
+                                    <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="32" Height="44"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid x:Name="windmillGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="1"
+                        Opacity=".85"   
+                        Width="800"
+                        Height="600"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        CornerRadius="15,15,15,15" 
+                        BorderBrush="Black" 
+                        Background="#fef8a0">
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="3*"/>
+                    </Grid.RowDefinitions>
+                    <Button Click="ReturnCastle"
+                            Grid.Row="0" 
+                            Width="50"
+                            Height="50"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top">
+                        <SymbolIcon Symbol="Back" />
+                    </Button>
+                    <TextBlock x:Name="molinoText"
+                               Text="CAPATAZ"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Top"
+                               FontSize="40"
+                               Margin="10"/>
+                    <TextBlock x:Name="mejoraProdText"
+                               Text="MEJORA DE PRODUCCIÓN"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom"
+                               FontSize="26"
+                               Margin="15"
+                               Grid.Row="0"/>
+                    <StackPanel Grid.Row="1" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top">
+
+                        <Border BorderThickness="1"
+                            Width="512"
+                            Height="60"
+                            CornerRadius="15,15,15,15"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image     Source="Assets/oro.png"          
+                                       Height="50"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock x:Name="mOroProdNom"
+                                           Text="Mina de Oro"
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="2"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mOroProdT"
+                                           Text="Prod: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mOroProdNumb"
+                                           Text="150"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mOroProdTiemp"
+                                           Text="/dia"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="3"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mOroProdNiv"
+                                           Text="Nivel: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mOroProdNivNumb"
+                                           Text="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <Button BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="4"
+                                        Click="OroUp">
+                                    <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="79"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                        <Border BorderThickness="1"
+                            Width="512"
+                            Height="60"
+                            CornerRadius="15,15,15,15"
+                            Margin="0,43,0,0"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image     Source="Assets/wood.png"          
+                                       Height="60"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock x:Name="mMadProdNom"
+                                           Text="Cabaña del Leñador"
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="2"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mMadProdT"
+                                           Text="Prod: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mMadProdNumb"
+                                           Text="7"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mMadProdTiemp"
+                                           Text="/semana"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="3"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mMadProdNiv"
+                                           Text="Nivel: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mMadProdNivNumb"
+                                           Text="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <Button BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="4"
+                                        Click="MadUp">
+                                    <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="79"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                        <Border BorderThickness="1"
+                            Width="512"
+                            Height="60"
+                            CornerRadius="15,15,15,15"
+                            Margin="0,43,0,0"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image     Source="Assets/stone.png"          
+                                       Height="40"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock x:Name="mPiedProdNom"
+                                           Text="Cantera"
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="2"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mPiedProdT"
+                                           Text="Prod: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mPiedProdNumb"
+                                           Text="7"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mPiedProdTiemp"
+                                           Text="/semana"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="3"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mPiedProdNiv"
+                                           Text="Nivel: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mPiedProdNivNumb"
+                                           Text="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <Button BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="4"
+                                        Click="PiedUp">
+                                    <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="79"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                        <Border BorderThickness="1"
+                            Width="512"
+                            Height="60"
+                            CornerRadius="15,15,15,15"
+                            Margin="0,43,0,0"
+                            BorderBrush="Black" 
+                            Background="#fef8a0">
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image     Source="Assets/crystals.png"          
+                                       Height="50"
+                                       VerticalAlignment="Center"/>
+                                <TextBlock x:Name="mMinProdNom"
+                                           Text="Mina de Cristales"
+                                           Grid.Column="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="2"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mMinProdT"
+                                           Text="Prod: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mMinProdNumb"
+                                           Text="2"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mMinProdTiemp"
+                                           Text="/semana"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal"
+                                            Grid.Column="3"
+                                            HorizontalAlignment="Center">
+                                    <TextBlock x:Name="mMinProdNiv"
+                                           Text="Nivel: "
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="mMinProdNivNumb"
+                                           Text="1"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <Button BorderThickness="0"
+                                        Background="Transparent"
+                                        Grid.Column="4"
+                                        Click="MinUp">
+                                    <Image Source="Assets/plus-icon.png"
+                                            Stretch="Uniform" Width="79"/>
+                                </Button>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

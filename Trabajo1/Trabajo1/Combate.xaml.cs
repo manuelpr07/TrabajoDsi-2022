@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Gaming.Input;
+using Windows.Media.Playback;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -25,100 +26,33 @@ namespace Trabajo1
     public sealed partial class Combate : Page
     {
         private string Idiomas;
-
+        NavigationInfo a;
         CoreCursor CursorHand = null;
+        static double volumeAux = 0;
+        public static MediaPlayer player;
 
-        private readonly object myLock = new object();
-        private List<Gamepad> myGamepads = new List<Gamepad>();
-        private Gamepad mainGamepad;
-
-        private GamepadReading reading, prereading;
-        private GamepadVibration vibration;
-
-        DispatcherTimer GamePadTimer;
         public Combate()
         {
             this.InitializeComponent();
             CursorHand = new CoreCursor(CoreCursorType.Hand, 0);
             Window.Current.CoreWindow.PointerCursor = CursorHand;
             Idiomas = "spanish";
-
-            Gamepad.GamepadAdded += (object sender, Gamepad e) =>
-            {
-                // comprueba si el gamepad está en la lista de myGamepads, si no lo añade
-                lock (myLock)
-                {
-                    bool gamepadInList = myGamepads.Contains(e);
-
-                    if (!gamepadInList)
-                    {
-                        myGamepads.Add(e);
-                        mainGamepad = myGamepads[0];
-                    }
-                }
-            };
-            Gamepad.GamepadRemoved += (object sender, Gamepad e) =>
-            {
-                lock (myLock)
-                {
-                    int indexRemoved = myGamepads.IndexOf(e);
-
-                    if (indexRemoved > -1)
-                    {
-                        if (mainGamepad == myGamepads[indexRemoved])
-                        {
-                            mainGamepad = null;
-                        }
-
-                        myGamepads.RemoveAt(indexRemoved);
-                    }
-                }
-            };
-        }
-
-        void LeeMando()
-        {
-            if (mainGamepad != null)
-            {
-                prereading = reading;
-                reading = mainGamepad.GetCurrentReading();
-            }
-
-        }
-        //void FeedBack()
-        //{
-        //    if (int.Parse(Turn.Text) > 9)
-        //    {
-        //        vibration.RightMotor = 0.8;
-        //        vibration.LeftMotor = 0.8;
-        //    }
-        //    else
-        //    {
-        //        vibration.RightMotor = 0.0;
-        //        vibration.LeftMotor = 0.0;
-        //    }
-        //}
-            void GamePadTimer_Tick(object sender, object e)
-        { //Función de respuesta al Timer cada 0.01s
-            if (mainGamepad != null)
-            {
-                LeeMando(); //Lee GamePAd
-                //FeedBack();
-            }
-        }
-        public void GamePadTimerSetup()
-        {
-            GamePadTimer = new DispatcherTimer();
-            GamePadTimer.Tick += GamePadTimer_Tick;
-            GamePadTimer.Interval = new TimeSpan(100000);
-            GamePadTimer.Start();
+            ElementSoundPlayer.Volume = 1;
+            player = App.getPlayer();
         }
         private void EnterMap(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Map), Idiomas);
+            Frame.Navigate(typeof(Map), a);
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            a = e.Parameter as NavigationInfo;
+
+            if (a == null)
+            {
+                a = new NavigationInfo();
+                a.idioma = "spanish";
+            }
             Idiomas = e.Parameter as string;
             if (Idiomas == "spanish")
             {
@@ -133,6 +67,10 @@ namespace Trabajo1
                 Frances.IsSelected = true;
             }
             ChangeLenguages(Idiomas);
+            if (player.Volume != 0)
+            {
+                music.Value = player.Volume*10;
+            }
         }
         private void Settings(object sender, RoutedEventArgs e)
         {
@@ -163,14 +101,14 @@ namespace Trabajo1
         }
         private void ReturnMenu(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            Frame.Navigate(typeof(MainPage), Idiomas);
         }
         private void NewTurn(object sender, RoutedEventArgs e)
         {
             int newTurn = int.Parse(Turn.Text);
             if (newTurn > 9)
             {
-                Frame.Navigate(typeof(Map));          
+                Frame.Navigate(typeof(Map), Idiomas);          
             }
             else Turn.Text = Convert.ToString(newTurn += 1);            
         }
@@ -225,8 +163,8 @@ namespace Trabajo1
                 ManaCong.Text = "20 Maná";
                 TextCong.Text = "Causa que un enemigo se quede congelado durante un turno, perdiéndolo y recibiendo un poco de daño.";
                 NomFueg.Text = "BOLA DE FUEGO";
-                ManaCong.Text = "40 Maná";
-                TextCong.Text = "Cae una bola de fuego en un rango de casillas de 3x3 causando mucho daño y causando quemadura a las tropas afectadas";
+                ManaFueg.Text = "40 Maná";
+                TextFueg.Text = "Cae una bola de fuego en un rango de casillas de 3x3 causando mucho daño y causando quemadura a las tropas afectadas";
 
                 //SETTINGS GRID
                 ConfigT.Text = "CONFIGURACIÓN";
@@ -246,8 +184,8 @@ namespace Trabajo1
                 ManaCong.Text = "20 Mana";
                 TextCong.Text = "Causes an enemy to freeze for one turn, losing it and taking some damage.";
                 NomFueg.Text = "FIREBALL";
-                ManaCong.Text = "40 Mana";
-                TextCong.Text = "Drops a fireball in a range of 3x3 squares dealing high damage and burning affected troops.";
+                ManaFueg.Text = "40 Mana";
+                TextFueg.Text = "Drops a fireball in a range of 3x3 squares dealing high damage and burning affected troops.";
 
                 //SETTINGS GRID
                 ConfigT.Text = "CONFIGURATION";
@@ -267,14 +205,34 @@ namespace Trabajo1
                 ManaCong.Text = "20 Mana";
                 TextCong.Text = "Provoque le gel d'un ennemi pendant un tour, le perd et subit des dégâts.";
                 NomFueg.Text = "BOULE DE FEU";
-                ManaCong.Text = "40 Mana";
-                TextCong.Text = "Lâche une boule de feu dans une plage de 3x3 carrés infligeant des dégâts importants et brûlant les troupes affectées.";
+                ManaFueg.Text = "40 Mana";
+                TextFueg.Text = "Lâche une boule de feu dans une plage de 3x3 carrés infligeant des dégâts importants et brûlant les troupes affectées.";
 
                 //SETTINGS GRID
                 ConfigT.Text = "PARAMÈTRE";
                 musicaT.Text = "MUSIQUE";
                 LenguageBox.Header = "Changer la Langue";
                 GuartarT.Content = "SAUVEGARDER ET QUITTER";
+            }
+        }
+        private void Slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            if (e.NewValue == 0)
+            {
+                player.Volume = 0;
+            }
+            else if (e.NewValue == 100) player.Volume = 1;
+            else
+            {
+                if (e.NewValue > e.OldValue) //Subir volumen 
+                {
+
+                    if (player.Volume + 0.01 <= 1) player.Volume += (e.NewValue - e.OldValue) / 10;
+                }
+                else if (e.NewValue < e.OldValue) //Bajar Volumen 
+                {
+                    if (player.Volume - 0.01 >= 0) player.Volume += (e.NewValue - e.OldValue) / 10; ;
+                }
             }
         }
     }

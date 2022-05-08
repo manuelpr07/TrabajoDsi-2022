@@ -7,6 +7,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -28,24 +30,35 @@ namespace Trabajo1
         /// </summary>
         /// 
         public enum lenguage { spanish, english, french}
-
-        class NavigationInfo
-        {
-            public ImageSource source;
-            public lenguage Idioma;
-
-        }
-
+        public static MediaPlayer player;
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            loadMusicData();
+            ElementSoundPlayer.Volume = 0;
         }
         /// <summary>
         /// Se invoca cuando la aplicación la inicia normalmente el usuario final. Se usarán otros puntos
         /// de entrada cuando la aplicación se inicie para abrir un archivo específico, por ejemplo.
         /// </summary>
         /// <param name="e">Información detallada acerca de la solicitud y el proceso de inicio.</param>
+
+        public static MediaPlayer getPlayer()
+        {
+            return player;
+        }
+        async void loadMusicData()
+        {
+            player = new MediaPlayer();
+            Windows.Storage.StorageFolder folder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync(@"Assets");
+            Windows.Storage.StorageFile file = await folder.GetFileAsync("musica.mp3");
+
+            player.AutoPlay = true;
+            player.Source = MediaSource.CreateFromStorageFile(file);
+            player.Volume = 0;
+            player.Play();
+        }
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
