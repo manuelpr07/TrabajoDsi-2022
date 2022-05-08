@@ -33,7 +33,6 @@ namespace Trabajo1
     public sealed partial class Map : Page
     {
         private string Idiomas;
-        static double volumeAux = 0;
         public static MediaPlayer player;
         CoreCursor CursorArrow = null;
 
@@ -92,9 +91,12 @@ namespace Trabajo1
                 Frances.IsSelected = true;
             }
             ChangeLenguages(Idiomas);
+
             if (player.Volume != 0)
             {
-                music.Value = player.Volume*10;
+                double aux = player.Volume * 10;
+                player.Volume = 0;
+                music.Value = aux;
             }
         }
         private void Settings(object sender, RoutedEventArgs e)

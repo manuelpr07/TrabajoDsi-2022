@@ -24,7 +24,6 @@ namespace Trabajo1
     public sealed partial class MainPage : Page
     {
         private string Idiomas;
-        static double volumeAux = 0;
         public static MediaPlayer player;
         public MainPage()
         {
@@ -54,7 +53,9 @@ namespace Trabajo1
 
             if (player.Volume != 0)
             {
-                music.Value = player.Volume*10;
+                double aux = player.Volume * 10;
+                player.Volume = 0;
+                music.Value = aux;
             }
         }
 

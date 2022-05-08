@@ -57,14 +57,14 @@
             </Border>
             <Button Click="EnterBarracks"
                     BorderThickness="5"
-                    Height="131"
+                    Height="123"
                     Background="Transparent"
-                    Width="129"
+                    Width="124"
                     Grid.Column="1"
                     Grid.Row="1"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
-                    Margin="30">
+                    Margin="0,0,50,15">
                 <Image  x:Name="baracs"         
                             Source="Assets/barracks.png"
                             Stretch="Uniform" Height="157" Width="95"
@@ -72,13 +72,13 @@
             </Button>
             <Button Click="EnterWindmill"
                     BorderThickness="5"
-                    Height="131"
+                    Height="121"
                     Background="Transparent"
-                    Width="129"
+                    Width="115"
                     Grid.Column="1"
                     Grid.Row="1"
                     VerticalAlignment="Bottom"
-                    Margin="286,0,0,0">
+                    Margin="300,0,0,10">
                 <Image  x:Name="windmill"         
                             Source="Assets/windmill.png"
                             Stretch="Uniform" Height="157" Width="95"

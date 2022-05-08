@@ -259,10 +259,12 @@
             <Button BorderThickness="0"
                     TabIndex="3"
                     Grid.Column="1"
+                    Grid.Row="1"
                     VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
                     Background="Transparent"
                     Click="MoveToCastle"
-                    Margin="469,226,0,0" Grid.RowSpan="2">
+                    Margin="0,50,50,0" Grid.RowSpan="2">
                 <Image  x:Name="castillo"         
                      Source="Assets/castle.png"
                      Stretch="Uniform" Height="129" Width="118"
