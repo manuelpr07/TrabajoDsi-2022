@@ -37,6 +37,12 @@ namespace Trabajo1
         public static MediaPlayer player;
         CoreCursor CursorArrow = null;
 
+        Button B1 = null;
+        Button B2 = null;
+        Button B3 = null;
+        // Keeping the Drag operation will allow to cancel it after it has started
+        IAsyncOperation<DataPackageOperation> _dragOperation;
+        string actual; // sólo para el release
 
         public Map()
         {
@@ -49,6 +55,10 @@ namespace Trabajo1
             Español.IsSelected = true;
             ElementSoundPlayer.Volume = 1;
             player = App.getPlayer();
+
+            B1 = DropButtonK12;
+            B2 = DropButtonK13;
+            B3 = DropButtonK14;
         }
 
         private void EnterResources(object sender, RoutedEventArgs e)
@@ -65,7 +75,7 @@ namespace Trabajo1
         {
             this.Frame.Navigate(typeof(Combate), SetNavigationInfo());
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e) 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             NavigationInfo a = e.Parameter as NavigationInfo;
 
@@ -79,7 +89,7 @@ namespace Trabajo1
                 GetNavigationInfo(a);
             }
             Idiomas = e.Parameter as string;
-            if(Idiomas == "spanish")
+            if (Idiomas == "spanish")
             {
                 Español.IsSelected = true;
             }
@@ -123,14 +133,14 @@ namespace Trabajo1
         }
         private void StoreButton1_onClick(object sender, RoutedEventArgs e)
         {
-            if(int.Parse(oro.Text) >= 100)
+            if (int.Parse(oro.Text) >= 100)
             {
                 int newOro = int.Parse(oro.Text) - 100;
                 oro.Text = Convert.ToString(newOro);
 
                 int newMadera = int.Parse(madera.Text) + 1;
                 madera.Text = Convert.ToString(newMadera);
-                if(newOro < 100)
+                if (newOro < 100)
                 {
                     StoreButton1.IsEnabled = false;
                 }
@@ -163,14 +173,14 @@ namespace Trabajo1
                 if (newWeek > 4)
                 {
                     newWeek = 1;
-                    newMonth = int.Parse(mes.Text) + 1;        
+                    newMonth = int.Parse(mes.Text) + 1;
                 }
             }
 
             int newOro = int.Parse(oro.Text) + int.Parse(oroPN.Text);
             oro.Text = newOro.ToString();
 
-            if( int.Parse(dia.Text)%7 == 0)
+            if (int.Parse(dia.Text) % 7 == 0)
             {
                 int newMad = int.Parse(madera.Text) + int.Parse(madPN.Text);
                 madera.Text = newMad.ToString();
@@ -200,7 +210,7 @@ namespace Trabajo1
             {
                 Idiomas = "french";
             }
-            
+
             ChangeLenguages(Idiomas);
         }
 
@@ -398,7 +408,7 @@ namespace Trabajo1
             dNumber.Text = a.troops[5].ToString();
             aNumber.Text = a.troops[6].ToString();
 
-            if(!string.IsNullOrWhiteSpace(a.idioma))
+            if (!string.IsNullOrWhiteSpace(a.idioma))
             {
                 Idiomas = a.idioma;
             }
@@ -424,14 +434,32 @@ namespace Trabajo1
             }
         }
 
+        // Copia el nombre del objeto copiado en el paquete:
         private void DropBorder_DragItemStarting(object sender, DragStartingEventArgs e)
         {
             Image Item = sender as Image;
             var aux = sender as StackPanel;
             string img = Item.Name.ToString();
             e.Data.SetText(img);
+            actual = img;
+
+            // Cuando se arratra un dragon el comportamiento cambia:
+            bool isDragon = false;
+            if (img == "_dragon")
+            {
+                isDragon = true;
+            }
+
+            if (isDragon)
+            {
+                DropGridView.Visibility = Visibility.Collapsed;
+                DropBorderK12.Visibility = Visibility.Visible;
+                DropBorderK13.Visibility = Visibility.Visible;
+                DropBorderK14.Visibility = Visibility.Visible;
+            }
         }
 
+        // Al detectar una posible casilla cambia la UI para generar feedback:
         private void DropBorder_DragEnter(object sender, Windows.UI.Xaml.DragEventArgs e)
         {
             VisualStateManager.GoToState(this, "Inside", true);
@@ -441,6 +469,8 @@ namespace Trabajo1
             e.DragUIOverride.Caption = "Drop here to assemble";
         }
 
+        // Cuando se suelta (dejar de hacer click) un objeto
+        // dentro de una casilla válida, copia la imagen:
         private async void DropBorder_Drop(object sender, Windows.UI.Xaml.DragEventArgs e)
         {
             VisualStateManager.GoToState(this, "Outside", true);
@@ -451,28 +481,160 @@ namespace Trabajo1
             var n = "DropImageK" + s[s.Length - 1];
             Image dst = FindName(n) as Image;
             Image src;
+            string tropa = null;
 
             e.AcceptedOperation = hasText ? DataPackageOperation.Copy : DataPackageOperation.None;
             if (hasText)
             {
-                var tropa = await e.DataView.GetTextAsync();
-                src = FindName(tropa) as Image;
-                dst.Source = src.Source;
+                tropa = await e.DataView.GetTextAsync();
+                if (tropa != "_dragon")
+                {
+                    src = FindName(tropa) as Image;
+                    dst.Source = src.Source;
+                }
+                else
+                {
+                    DragLeave_Dragon(tropa);
+                }
             }
         }
 
+        // Si clicka una casilla con tropas, las elimina:
         private void eraseTarget(object sender, RoutedEventArgs e)
         {
             var b = sender as Button;
             var s = b.Name.Split('K');
             var n = "DropImageK" + s[s.Length - 1];
+
+            var brN = "DropBorderK" + s[s.Length - 1];
+            s = n.Split('Q');
+            n = s[0];
+
+            if (s[s.Length - 1].Contains("dragon"))
+            {
+                s = brN.Split('Q');
+                brN = s[0];
+                var br = FindName(brN) as Border;
+                br.Visibility = Visibility.Collapsed;
+
+                s = b.Name.Split('Q');
+                b.Name = s[0];
+            }
+
             var img = FindName(n) as Image;
             img.Source = null;
         }
 
-        private void _tropas_DragStarting(UIElement sender, DragStartingEventArgs args)
+        // Al detectar una posible casilla cambia la UI para generar feedback:
+        // EXCLUSIVO PARA EL DRAGON
+        private async void DropBorder_DragEnter_Dragon(object sender, Windows.UI.Xaml.DragEventArgs e)
         {
+            VisualStateManager.GoToState(this, "Inside", true);
+            bool hasText = e.DataView.Contains(StandardDataFormats.Text);
+            bool done = false;
 
+            if (hasText)
+            {
+                var tropa = await e.DataView.GetTextAsync();
+                if (tropa == "_dragon")
+                {
+                    e.AcceptedOperation = DataPackageOperation.Copy;
+                    done = true;
+                }
+            }
+
+            if (!done)
+            {
+                e.AcceptedOperation = DataPackageOperation.None;
+            }
+
+            e.DragUIOverride.Caption = "Drop here to assemble";
+        }
+
+        // Cuando se suelta (dejar de hacer click) un objeto
+        // dentro de una casilla válida, copia la imagen:
+        // EXCLUSIVO PARA EL DRAGON
+        private async void DropBorder_Drop_Dragon(object sender, Windows.UI.Xaml.DragEventArgs e)
+        {
+            VisualStateManager.GoToState(this, "Outside", true);
+            bool hasText = e.DataView.Contains(StandardDataFormats.Text);
+
+            var b = sender as Border;
+            var s = b.Name.Split('K');
+            var n = "DropImageK" + s[s.Length - 1];
+
+            var btN = "DropButtonK" + s[s.Length - 1];
+            var bt = FindName(btN) as Button;
+
+            Image dst = FindName(n) as Image;
+            Image src;
+            string tropa = null;
+
+            if (hasText)
+            {
+                e.AcceptedOperation = DataPackageOperation.None;
+                tropa = await e.DataView.GetTextAsync();
+                if (tropa == "_dragon")
+                {
+                    bt.Name += "Qdragon";
+                    e.AcceptedOperation = DataPackageOperation.Copy;
+                    src = FindName(tropa) as Image;
+                    dst.Source = src.Source;
+                    var aux = bt.Name;
+                }
+            }
+            DragLeave_Dragon(tropa);
+        }
+
+        // Gestiona lo ocurre cuando se arrastra un dragon y se suelta:
+        private void DragLeave_Dragon(string tropa)
+        {
+            bool isDragon = false;
+            if (tropa == "_dragon")
+            {
+                isDragon = true;
+            }
+
+            if (isDragon)
+            {
+                DropGridView.Visibility = Visibility.Visible;
+
+                if (!dragonMatch(B1)) DropBorderK12.Visibility = Visibility.Collapsed;
+                if (!dragonMatch(B2)) DropBorderK13.Visibility = Visibility.Collapsed;
+                if (!dragonMatch(B3)) DropBorderK14.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        // Comprueba si contiene un dragon:
+        private bool dragonMatch(object sender)
+        {
+            var b = sender as Button;
+            var s = b.Name.Split('Q');
+            var n = s[s.Length - 1];
+
+            if (n == "dragon")
+                return true;
+            else
+                return false;
+        }
+
+        // Gestiona lo que ocurre si se suelta el objeto sin realizar ninguna acción:
+        private void DragCompleted(IAsyncOperation<DataPackageOperation> asyncInfo, AsyncStatus asyncStatus)
+        {
+            _dragOperation = null;
+            DragLeave_Dragon(actual);
+        }
+
+        // Decide cual será el comportamiento de finalización de un arrestra/drag,
+        // una vez este ha comenzado. Comportamiento por defecto de cierre si no se hace otra cosa.
+        private void Source_PointerMoved(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            var obj = sender as Image;
+            if (e.Pointer.IsInContact && (_dragOperation == null))
+            {
+                _dragOperation = obj.StartDragAsync(e.GetCurrentPoint(obj));
+                _dragOperation.Completed = DragCompleted;
+            }
         }
     }
 }

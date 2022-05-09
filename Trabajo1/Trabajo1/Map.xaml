@@ -390,7 +390,7 @@
             </Border>
         </Grid>
         <Grid x:Name="troopsGrid"
-              Visibility="Visible">
+              Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="3*"/>
@@ -573,38 +573,45 @@
                                        Source="Assets/tropas.png"          
                                        Stretch="Uniform"
                                        Grid.Row="1" CanDrag="True" 
-                                       DragStarting="DropBorder_DragItemStarting"/>
+                                       DragStarting="DropBorder_DragItemStarting"
+                                       PointerMoved="Source_PointerMoved"/>
                             <Image     x:Name="_arqueros"
                                        Source="Assets/arqueros.png"          
                                        Stretch="Uniform"
                                        Grid.Row="2" CanDrag="True"
-                                       DragStarting="DropBorder_DragItemStarting"/>
+                                       DragStarting="DropBorder_DragItemStarting"
+                                       PointerMoved="Source_PointerMoved"/>
                             <Image     x:Name="_piqueros"
                                        Source="Assets/piqueros.png"          
                                        Stretch="Uniform"
                                        Height="20"
                                        Grid.Row="3" CanDrag="True"
-                                       DragStarting="DropBorder_DragItemStarting"/>
+                                       DragStarting="DropBorder_DragItemStarting"
+                                       PointerMoved="Source_PointerMoved"/>
                             <Image     x:Name="_caballeros"
                                        Source="Assets/caballeros.png"          
                                        Stretch="Uniform"
                                        Grid.Row="4" CanDrag="True"
-                                       DragStarting="DropBorder_DragItemStarting"/>
+                                       DragStarting="DropBorder_DragItemStarting"
+                                       PointerMoved="Source_PointerMoved"/>
                             <Image     x:Name="_templarios"
                                        Source="Assets/templarios.png"          
                                        Stretch="Uniform"
                                        Grid.Row="5" CanDrag="True"
-                                       DragStarting="DropBorder_DragItemStarting"/>
+                                       DragStarting="DropBorder_DragItemStarting"
+                                       PointerMoved="Source_PointerMoved"/>
                             <Image     x:Name="_dragon"
                                        Source="Assets/dragon.png"          
                                        Stretch="Uniform"
                                        Grid.Row="6" CanDrag="True"
-                                       DragStarting="DropBorder_DragItemStarting"/>
+                                       DragStarting="DropBorder_DragItemStarting"
+                                       PointerMoved="Source_PointerMoved"/>
                             <Image     x:Name="_angeles"
                                        Source="Assets/angeles.png"          
                                        Stretch="Uniform"
                                        Grid.Row="7" CanDrag="True"
-                                       DragStarting="DropBorder_DragItemStarting"/>
+                                       DragStarting="DropBorder_DragItemStarting"
+                                       PointerMoved="Source_PointerMoved"/>
                         </Grid>
                     </Border>
                     <TextBlock  x:Name ="FormTropas"
@@ -613,11 +620,16 @@
                                VerticalAlignment="Top" Margin="0,0,0,0"
                                FontSize="26"
                                Grid.Row="2"/>
+
+
+                    
+
                     <GridView x:Name="DropGridView" Grid.Row="2" SelectionMode="None"
                               Width="351" Height="131" HorizontalAlignment="Center" VerticalAlignment="Center"
                               BorderThickness="1" CornerRadius="15,15,15,15" Margin="0,25,0,0" 
                               BorderBrush="Black" Background="#fef8a0" Padding="13,12,12,10" UseLayoutRounding="False">
 
+                        <!--Fila de casillas de ARRIBA-->
                         <Border x:Name="DropBorderK0" Style="{StaticResource DragDropTarget}"
                                 DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
                             <Button x:Name="DropButtonK0" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
@@ -655,6 +667,7 @@
                             </Button>
                         </Border>
 
+                        <!--Fila de casillas de ABAJO-->
                         <Border x:Name="DropBorderK6" Style="{StaticResource DragDropTarget}"
                                 DragEnter="DropBorder_DragEnter" Drop="DropBorder_Drop" AllowDrop="True">
                             <Button x:Name="DropButtonK6" Click="eraseTarget" Style="{StaticResource ButtonTarget}">
@@ -692,6 +705,37 @@
                             </Button>
                         </Border>
                     </GridView>
+
+                    <!--Fila de casillas del DRAGON-->
+                    <Border x:Name="DropBorderK12" Visibility="Collapsed"
+                            Grid.Row="2" Margin="237,45.85,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Width="104" Height="104"  BorderBrush="Black" BorderThickness="2"
+                            DragEnter="DropBorder_DragEnter_Dragon" Drop="DropBorder_Drop_Dragon" AllowDrop="True">
+                        <Button x:Name="DropButtonK12" Click="eraseTarget" Style="{StaticResource ButtonTarget}"
+                                Width="104" Height="104"
+                                Visibility="Visible">
+                            <Image x:Name="DropImageK12" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                        </Button>
+                    </Border>
+                    <Border x:Name="DropBorderK13" Visibility="Collapsed"
+                            Grid.Row="2" Margin="344.4,45.85,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Width="104" Height="104"  BorderBrush="Black" BorderThickness="2"
+                            DragEnter="DropBorder_DragEnter_Dragon" Drop="DropBorder_Drop_Dragon" AllowDrop="True">
+                        <Button x:Name="DropButtonK13" Click="eraseTarget"  Style="{StaticResource ButtonTarget}"
+                                Width="104" Height="104"
+                                Visibility="Visible">
+                            <Image x:Name="DropImageK13" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                        </Button>
+                    </Border>
+                    <Border x:Name="DropBorderK14" Visibility="Collapsed"
+                            Grid.Row="2" Margin="452,45.85,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Width="104" Height="104"  BorderBrush="Black" BorderThickness="2"
+                            DragEnter="DropBorder_DragEnter_Dragon" Drop="DropBorder_Drop_Dragon" AllowDrop="True">
+                        <Button x:Name="DropButtonK14" Click="eraseTarget"  Style="{StaticResource ButtonTarget}"
+                                Width="104" Height="104">
+                            <Image x:Name="DropImageK14" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+                        </Button>
+                    </Border>
                     <!--<Border BorderThickness="1"
                         Width="700"
                         Height="100"
